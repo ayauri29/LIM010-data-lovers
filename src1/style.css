@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+
+*{
+    font-style: normal;
+    font-family: 'Open Sans', sans-serif;
+}
+header{
+    background: #0d47a1;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+ul{   
+    list-style-type: none;
+    /*margin-top: 25px;*/
+}
+    
+    ul li{
+      display: inline-block;
+    }
+    
+    ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    /*transition: 0.6s ease;*/
+    }
+    
+    ul li a:hover{
+    background-color: #fff;
+    color: #000;
+    }
+     
+    ul li.active a{
+    background-color: #fff;
+    color: #000;
+    }
+h1,.barraNav{
+    font-size: 24px;
+    color: white;  
+}
+.barraNav{
+    margin: 5px;  
+}
+    
+body{
+    background: #F7F7F7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+   
+}
+main{
+    display:flex;
+    justify-content: center;
+    flex:1;
+  }
+#logo{
+    width: 160px;
+    height: 100px;
+    margin-bottom: 24.28px;
+}
+.label{
+    align-self: flex-start;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 25px;
+    height: 37px;
+    color: #000000; 
+}
+.olvidasteContraseña{
+    align-self: flex-end;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1px;
+    height: 22px;
+    color: #000000; 
+}
+.registro{
+    align-self: center;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1px;
+    height: 22px;
+    color: #000000; 
+}
+#user, #pass{
+    box-sizing: border-box;
+    width: 335px;
+    height: 45px;
+    padding: 5px;
+    border-radius: 2px;
+    border-style: none;
+    margin-bottom: 12px;
+}
+#ingresar{
+    align-self: center;
+    border-style: none;
+    border-radius: 5px;
+    height: 50px;
+    width: 335px;
+    margin-top: 48px;
+    margin-bottom: 12px;
+
+    background-color: #ff9800;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 1px;
+}
+
+#claveIncorrecta{
+    font-size: 14px;
+}
+.flexForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    padding: 0px 20px;
+    
+    background: #F7F7F7;
+    
+}
+.flex{
+    display:flex;
+    align-items:center;
+}
+footer{
+    background: #000;
+    padding: 15px;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+.hide{
+    display:none;
+}
+
+
+
+@media screen and (min-width:764px){
+    .fondo1{
+        background-image:linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.35)
+          ), url('../img/fondo.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        /* rgba(25, 209, 231, 0.5),
+          rgba(243, 17, 224, 0.5)*/
+    }
+    #logo{
+        margin-bottom: 48px;
+        width: 200px;
+        height: 120px;
+    }
+    label{
+        line-height: 22px;
+    }
+    #user, #pass{
+        width: 448px;
+        height: 70px;
+    }
+    #user{
+        margin-bottom: 20px;
+    }
+    #ingresar{
+        width: 180px;
+        margin-bottom: 26px;
+    }
+    .flexForm{
+        padding: 85px 118px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    }
+    footer{
+        font-size: 14px;
+    }
+}
