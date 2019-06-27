@@ -1,9 +1,10 @@
-# Data Lovers
+# Pokémon GO
 
 ## Índice
 
 - [Índice](#índice)
 - [Preámbulo](#preámbulo)
+- [Prototipo en papel](#prototipo-en-papel)
 - [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
 - [Consideraciones generales](#consideraciones-generales)
 - [Requerimientos del proyecto](#requerimientos-del-proyecto)
@@ -30,6 +31,11 @@ al lado derecho.
 
 \* Puedes ver el detalle de la data en este [link](https://gist.github.com/lalogf/dd4aa3017a9f8aa8f90dfbca382c4dc9#file-student-json)
 y la interfaz construida en este [link](https://app.talento.laboratoria.la/profile/HFOoMpOreBU2psCcjjLg5O2EWEv2).
+
+## Prototipo en papel
+
+![PrototipoEnPapel](https://user-images.githubusercontent.com/51327685/60276635-9c4e5480-98c1-11e9-8547-3c9d24359cdb.jpg)
+
 
 ## Objetivos de aprendizaje
 
