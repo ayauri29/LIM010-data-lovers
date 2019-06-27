@@ -13,5 +13,20 @@ document.getElementById('enter').addEventListener('submit', (enter) => {
   if (pass === 'LABORATORIA' && user === 'LABORATORIA') {
     alert("Bienvenido");
   }
-  
+  else if (cont > 2) {
+    claveIncorrecta.innerHTML = ' Ha intentado demasiadas veces.';
+    usuario.value = '';
+    contraseña.value = '';
+    ingresar.disabled = true;
+    usuario.disabled = true;
+    contraseña.disabled = true;
+  }
+  else {
+    claveIncorrecta.innerHTML = ' ERROR! Introduzca una clave válida.';
+    usuario.value = '';
+    contraseña.value = '';
+    usuario.focus();
+    contraseña.focus();
+    cont++;
+  }
 })
