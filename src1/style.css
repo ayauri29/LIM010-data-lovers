@@ -12,12 +12,28 @@ header{
     align-items: center;
     padding: 5px 20px;
 }
-ul{   
+.contenido{
+    border-style: none;
+    color: white;
+    background: none;
+    font-size: 20px;
+    margin: 8px;
+    padding: 5px;
+}
+.contenido:hover{
+    background-color: #fff;
+    color: #000;
+}
+.active{
+    background-color: #fff;
+    color: #000;
+}
+/*ul{   
     list-style-type: none;
     /*margin-top: 25px;*/
-}
+/*}*/
     
-    ul li{
+ /*   ul li{
       display: inline-block;
     }
     
@@ -27,9 +43,9 @@ ul{
     padding: 5px 20px;
     border: 1px solid transparent;
     /*transition: 0.6s ease;*/
-    }
+   /* }*/
     
-    ul li a:hover{
+  /*  ul li a:hover{
     background-color: #fff;
     color: #000;
     }
@@ -37,7 +53,7 @@ ul{
     ul li.active a{
     background-color: #fff;
     color: #000;
-    }
+    }*/
 h1,.barraNav{
     font-size: 24px;
     color: white;  
@@ -45,7 +61,13 @@ h1,.barraNav{
 .barraNav{
     margin: 5px;  
 }
-    
+.nav{
+    color:white;
+    margin-right: 5px;
+} 
+.nav:hover{
+    color:black;
+}
 body{
     background: #F7F7F7;
     display: flex;
@@ -60,9 +82,9 @@ main{
     flex:1;
   }
 #logo{
-    width: 160px;
-    height: 100px;
-    margin-bottom: 24.28px;
+    width: 131px;
+    height: 80.2px;
+    margin-bottom: 12.8px;
 }
 .label{
     align-self: flex-start;
@@ -90,7 +112,7 @@ main{
 }
 #user, #pass{
     box-sizing: border-box;
-    width: 335px;
+    width: 280px;
     height: 45px;
     padding: 5px;
     border-radius: 2px;
@@ -102,7 +124,7 @@ main{
     border-style: none;
     border-radius: 5px;
     height: 50px;
-    width: 335px;
+    width: 280px;
     margin-top: 48px;
     margin-bottom: 12px;
 
@@ -120,6 +142,7 @@ main{
 .flexForm{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;   
     padding: 0px 20px;
     
@@ -129,6 +152,20 @@ main{
 .flex{
     display:flex;
     align-items:center;
+}
+/*#screen_home{
+    justify-content: space-between;
+}*/
+#aboutUs{
+    width: 550px;
+    margin-right: 70px;
+    line-height: 30px;
+}
+#aboutUs p{
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: justify;
+    padding: 20px;
+    color: white;
 }
 footer{
     background: #000;
@@ -141,8 +178,32 @@ footer{
     display:none;
 }
 
+/* Estilo de cards*/
 
-
+.card{
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    margin: 5px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #6bbd837d;
+    width: 150px;
+ }
+ .nom{
+    color: #ccb500;
+    font-weight: bold;
+    background: #000;
+    padding: 5px;
+ }
+ #countEgg{
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+ }
+.flexPoke{
+    text-align: center;
+}
 @media screen and (min-width:764px){
     .fondo1{
         background-image:linear-gradient(
@@ -156,27 +217,18 @@ footer{
           rgba(243, 17, 224, 0.5)*/
     }
     #logo{
-        margin-bottom: 48px;
-        width: 200px;
-        height: 120px;
+        margin-bottom: 3.75px;
+        width: 156.5px;
+        height: 96.25px;
     }
-    label{
-        line-height: 22px;
-    }
-    #user, #pass{
-        width: 448px;
-        height: 70px;
-    }
-    #user{
-        margin-bottom: 20px;
-    }
-    #ingresar{
-        width: 180px;
-        margin-bottom: 26px;
+    #user, #pass, #ingresar{
+        width: 335px;
+        
     }
     .flexForm{
-        padding: 85px 118px;
-        border-radius: 5px;
+        /*width: 460px;*/
+        height: 516px;
+        padding:0px 62.5px;
         box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
     }
     footer{
