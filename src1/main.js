@@ -73,7 +73,7 @@ const buscarPokemon = (string) => {
         const card = `
          <div class="card">
            <img src="` + POKEMON.pokemon[i].img + `"/>
-           
+           <p class="nom">` + POKEMON.pokemon[i].name +`</p>
          </div>
          </div>
       `;
@@ -106,7 +106,7 @@ verTodos.addEventListener('click',() => {
     const card = `
       <div class="card">
         <img src="` + POKEMON.pokemon[i].img + `"/>
-        
+        <p class="nom">` + POKEMON.pokemon[i].name +`</p> 
       </div>
     </div>
       `;
