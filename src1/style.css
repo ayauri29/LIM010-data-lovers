@@ -180,7 +180,7 @@ footer{
 
 /* Estilo de cards*/
 
-/*.card{
+.card{
     border: 2px solid rgba(0, 0, 0, 0.6);
     margin: 5px;
     display: inline-block;
@@ -195,7 +195,7 @@ footer{
     font-weight: bold;
     background: #000;
     padding: 5px;
- }*/
+ }
  #countEgg{
     color: white;
     font-weight: bold;
