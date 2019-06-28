@@ -41,3 +41,79 @@ document.getElementById('enter').addEventListener('submit', (enter) => {
 })
 
 /*-------------------------------------*/
+const home = document.getElementById('home');
+home.addEventListener('click', () =>{
+  screen_home.classList.remove('hide');
+  screen_pokemon.classList.add('hide');
+  document.getElementById('pestana').classList.add('hide')
+  home.classList.add('active');
+  verTodos.classList.remove('active');
+  document.getElementById('pokemones').classList.add('hide');
+  huevos.classList.remove('active');
+  /*document.getElementById('iHome').classList.add('active');
+  document.getElementById('iFiltros').classList.remove('active');
+  document.getElementById('iHuevos').classList.remove('active');*/
+})
+const buscar = document.getElementById('buscar');
+let text = "";
+pokemones.addEventListener('change', () =>{
+  const x = document.getElementById('pokemones').value;
+  text = buscarPokemon(x);
+  document.getElementById('demo').innerHTML = text;
+});
+
+const buscarPokemon = (string) => {
+  let list = '';
+  document.getElementById("countEgg").innerHTML="";
+  document.getElementById('card1').innerHTML = "";
+  document.getElementById('verTodos').innerHTML = "";
+  for (let i = 0; i < POKEMON.pokemon.length; i++) {
+    for (let j = 0; j < POKEMON.pokemon[i].type.length; j++) {
+      if(POKEMON.pokemon[i].type[j] === string){
+        const card = `
+         <div class="card">
+           <img src="` + POKEMON.pokemon[i].img + `"/>
+           
+         </div>
+         </div>
+      `;
+      list += card;
+
+      }
+    }
+  }
+  return list;
+}
+
+const verTodos = document.getElementById('filtros');
+verTodos.addEventListener('click',() => {
+  screen_home.classList.add('hide');
+  screen_pokemon.classList.remove('hide');
+  document.getElementById('pestana').classList.add('hide');
+  document.getElementById('pokemones').classList.remove('hide');
+  home.classList.remove('active');
+  verTodos.classList.add('active');
+  huevos.classList.remove('active');
+  /*document.getElementById('iHome').classList.remove('active');
+  document.getElementById('iFiltros').classList.add('active');
+  document.getElementById('iHuevos').classList.remove('active');*/
+
+  let list = "";
+  document.getElementById("countEgg").innerHTML="";
+  document.getElementById("demo").innerHTML="";
+  document.getElementById('card1').innerHTML = "";
+  for (let i = 0; i < POKEMON.pokemon.length; i++) {  
+    const card = `
+      <div class="card">
+        <img src="` + POKEMON.pokemon[i].img + `"/>
+        
+      </div>
+    </div>
+      `;
+      list += card; 
+
+  }
+   document.getElementById("verTodos").innerHTML=list;
+});
+
+
