@@ -7,9 +7,9 @@
 - [Prototipo en papel](#prototipo-en-papel)
 - [Prototipo en FIGMA](#prototipo-en-FIGMA)
 - [Historias de usuario](#historias-de-usuario)
-- [Investigación UX] (#investigacion-ux)
+- [Investigación UX](#investigacion-ux)
 
-***
+
 
 ## Resumen
 
