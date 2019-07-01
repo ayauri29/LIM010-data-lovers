@@ -8,18 +8,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">-->
   <link rel="icon" type="image/png" href="../img/pokemon.png" />
+  
 </head>
 
 <body class="fondo1">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <header id="header" class="hide">
-    <div class="flex">
-      <i class="fa fa-bars barraNav" aria-hidden="true"></i>
+    <div>
+      <i class="fa fa-bars barra-nav" aria-hidden="true"></i>
       <h1>Pokémon GO</h1>
     </div>
     <div>
-    <button type="button" class="contenido" id="home"><i id="iHome" class="nav fa fa-home" aria-hidden="true"></i>Home</button>
-    <button type="button" class="contenido" id="filtros"><i id="iFiltros" class="nav fa fa-folder" aria-hidden="true"></i>Pokemon</button>
-    <button type="button" class="contenido" id="huevos"><i id="iHuevos"class="nav fa fa-pie-chart" aria-hidden="true"></i>Egg</button>
+      <button type="button" class="contenido" id="home"><i id="i-home" class="nav fa fa-home"
+          aria-hidden="true"></i>Home</button>
+      <button type="button" class="contenido" id="ver-pokemones"><img id="pokebola" class="icon-pok" alt="icono-pokebola" src="../img/pokeball (1).png"/>Pokemon</button>
+      <button type="button" class="contenido" id="huevos-km"><img id="egg-pok" class="icon-pok" alt="icono-huevo" src="../img/huevo.png"/>Egg</button>
     </div>
     <!--<nav class="menu">
       <ul>
@@ -31,36 +34,35 @@
     </nav>-->
   </header>
   <main>
-    <section id="screen_inicioSesion" class="flex">
-      <form id="enter" class="flexForm">
-        <img id="logo" alt="pokemonGo"
+    <section id="screen-inicio-sesion" class="flex">
+      <form id="enter" class="flex-form">
+        <img id="logo" alt="pokemon-go"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1280px-Pok%C3%A9mon_GO_logo.svg.png" />
         <label class="flex label">Usuario</label>
         <input type="text" id="user" required />
         <label class="flex label">Contraseña</label>
         <input type="password" id="pass" required />
-        <label class="flex olvidasteContraseña">¿Olvidaste tu contraseña?</label>
+        <label class="flex olvidaste-contrasena">¿Olvidaste tu contraseña?</label>
         <input type="submit" id="ingresar" value="INGRESA" />
-        <label class="flex registro">¿No tienes una cuenta?&nbsp<strong>Registrate</strong></label>
-        <p id="claveIncorrecta"></p>
+        <label class="flex registro">¿No tienes una cuenta?&nbsp<span class="bold">Registrate</span></label>
+        <p id="clave-incorrecta"></p>
       </form>
     </section>
-    <section id="screen_home" class="flex hide">
-      <div id="aboutUs">
+    <section id="screen-home" class="flex hide">
+      <div id="about-us">
         <h1>Pokémon GO - Puntos fuertes y débiles de todos los tipos de Pokémon</h1>
         <p>Fuego, Hierba y Agua. Es relativamente obvio saber quién vence a quién. ¡Pero Pokémon no se detiene ahí! Te
           contamos todo sobre los tipos de Pokémon en Pokémon Go.
-          Todos los Pokémon de Pokémon Go se dividen en distintas categorías conocidas como 'tipos'. Un Pokémon puede
-          ser de uno de dos tipos,
-          y los tipos determinan varias cosas sobre un Pokémon. Por un lado determina dónde le gusta vivir, pero también
-          determina sus puntos débiles y fuertes frente a la batalla.
-          Conócelos todos.</p>
+          Todos los Pokémon se dividen en distintos tipos. Un Pokémon puede ser de uno o más tipos, que determinan
+          varias características sobre un Pokémon. Por un lado determina dónde le gusta vivir, pero también
+          determina sus puntos débiles y fuertes frente a la batalla. Conócelos todos.</p>
       </div>
-      <img id="gifPokemon" alt="gif-de-pikachu" src="https://media.giphy.com/media/aNp3tRXvsxRS0/giphy.gif" />
+      <img id="gif-pokemon" alt="gif-de-pikachu" src="https://media.giphy.com/media/aNp3tRXvsxRS0/giphy.gif" />
     </section>
-    <section id="screen_pokemon" class="flexPoke hide">
+    <section id="screen-pokemon" class="flex-poke hide">
       <form>
-        <select id="pokemones">
+        <select id="filtro">
+          <option value="" disabled selected>Todos</option>
           <option value="Grass">Hierba</option>
           <option value="Poison">Veneno</option>
           <option value="Fire">Fuego</option>
@@ -78,14 +80,15 @@
           <option value="Dragon">Dragon</option>
         </select>
       </form>
-      <div id="container">
-      <p id="demo"></p>
-      <div id="card1"></div>
-      <div id="verTodos"></div>
+      <div id="container-cards">
+        <p id="count-filtro"></p>
+        <div id="pok-filtrados"></div>
+        <div id="pokemones"></div>
       </div>
     </section>
-    <section id="pestana" class="hide">
-      <p id="countEgg"></p>
+    <section id="screen-eclosion-egg" class="hide">
+      <p id="count-egg"></p>
+      <div id="charts"></div>
     </section>
   </main>
   <footer id="footer" class="hide">

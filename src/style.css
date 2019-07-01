@@ -5,6 +5,12 @@
     font-style: normal;
     font-family: 'Open Sans', sans-serif;
 }
+.bold{
+    font-weight: bold;
+}
+option[value=""][disabled] {
+    display: none;
+  }
 header{
     background: #0d47a1;
     display: flex;
@@ -54,19 +60,24 @@ header{
     background-color: #fff;
     color: #000;
     }*/
-h1,.barraNav{
+h1,.barra-nav{
     font-size: 24px;
     color: white;  
+    display: inline-block;
 }
-.barraNav{
-    margin: 5px;  
+.barra-nav{
+    margin: 5px;
 }
 .nav{
-    color:white;
-    margin-right: 5px;
+    color: #63dc1a;
+    margin-right: 3px;
+    font-size: 25px;
+    vertical-align: middle;
 } 
-.nav:hover{
-    color:black;
+.icon-pok{
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
 }
 body{
     background: #F7F7F7;
@@ -94,7 +105,7 @@ main{
     height: 37px;
     color: #000000; 
 }
-.olvidasteContraseña{
+.olvidaste-contrasena{
     align-self: flex-end;
     font-size: 14px;
     font-weight: bold;
@@ -136,10 +147,10 @@ main{
     line-height: 1px;
 }
 
-#claveIncorrecta{
+#clave-incorrecta{
     font-size: 14px;
 }
-.flexForm{
+.flex-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -156,12 +167,12 @@ main{
 /*#screen_home{
     justify-content: space-between;
 }*/
-#aboutUs{
+#about-us{
     width: 550px;
     margin-right: 70px;
     line-height: 30px;
 }
-#aboutUs p{
+#about-us p{
     background-color: rgba(0, 0, 0, 0.3);
     text-align: justify;
     padding: 20px;
@@ -190,18 +201,42 @@ footer{
     background-color: #6bbd837d;
     width: 150px;
  }
- .nom{
-    color: #ccb500;
-    font-weight: bold;
-    background: #000;
-    padding: 5px;
+ .img-pok{
+    padding: 8px;
+    background: rgba(35, 34, 53, 0.3);
  }
- #countEgg{
+ .num{
+     text-align: left;
+     font-weight: bold;
+     margin: 0;
+ }
+ .nom{
+    color: #f8f8f8;
+    font-weight: bold;
+    background: #0d47a1;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+ }
+ .pc{
+    color: #f8f8f8;
+    font-weight: bold;
+    background: #20af0e;
+    width: 70px;
+    margin: 5px auto;
+ }
+ .type{
+    color: #710909;
+    font-weight: bold;
+    margin: 0;
+    font-size: 13px;
+ }
+ #count-egg{
     color: white;
     font-weight: bold;
     padding: 5px;
  }
-.flexPoke{
+.flex-poke{
     text-align: center;
 }
 @media screen and (min-width:764px){
@@ -225,7 +260,7 @@ footer{
         width: 335px;
         
     }
-    .flexForm{
+    .flex-form{
         /*width: 460px;*/
         height: 516px;
         padding:0px 62.5px;
