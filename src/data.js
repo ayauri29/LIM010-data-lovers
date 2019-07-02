@@ -9,26 +9,12 @@ const buscarTipo = (data, tipo) => {
     for (let j = 0; j < data[i].type.length; j++) {
       if (data[i].type[j] === tipo) {
         array.push({
+          num: data[i].num,
+          multipliers: data[i].multipliers,
           name: data[i].name,
-          img: data[i].img
+          img: data[i].img,
+          type: data[i].type
         });
-      }
-    }
-  }
-  return array;
-};
-
-const buscarDebil = (data, tipo, debilidad) => {
-  let array = [];
-  for (let i = 0; i < data.length; i++) {
-    for (let j = 0; j < data[i].weaknesses.length; j++) {
-      for (let x = 0; x < data[i].type.length; x++) {
-        if (data[i].weaknesses[j] === debilidad && data[i].type[x] === tipo) {
-          array.push({
-            name: data[i].name,
-            img: data[i].img
-          });
-        }
       }
     }
   }
@@ -39,14 +25,14 @@ const mostrarImg = (array) => {
   let list = '';
   for (let i = 0; i < array.length; i++) {
     const card = `
-    <div class="card">
-    <p class="num">` + 'N.º ' + POKEMON.pokemon[i].num + `</p>
-    <p class="pc">` + POKEMON.pokemon[i].multipliers + `</p>
-    <img class="img-pok" src="` + POKEMON.pokemon[i].img + `"/>
-    <p class="nom">` + POKEMON.pokemon[i].name + `</p>
-    <p class="type">` + POKEMON.pokemon[i].type.join(' - ') + `</p>
-  </div>
-</div>
+          <div class="card">
+          <p class="num">` + 'N.º ' + array[i].num + `</p>
+          <p class="pc">` + array[i].multipliers + `</p>
+          <img class="img-pok" src="` + array[i].img + `"/>
+          <p class="nom">` + array[i].name + `</p>
+          <p class="type">` + array[i].type.join(' - ') + `</p>
+        </div>
+      </div>
           `;
     list += card;
   }
@@ -83,6 +69,5 @@ const buscarHuevos = (data) => {
 };
 
 window.buscarTipo = buscarTipo;
-window.buscarDebil = buscarDebil;
-window.buscarHuevos = buscarHuevos;
 window.mostrarImg = mostrarImg;
+window.buscarHuevos = buscarHuevos;
