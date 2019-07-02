@@ -2,6 +2,9 @@
 
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
+const example = () => {
+  return 'example';
+};
 
 const buscarTipo = (data, tipo) => {
   let array = [];
@@ -13,7 +16,11 @@ const buscarTipo = (data, tipo) => {
           multipliers: data[i].multipliers,
           name: data[i].name,
           img: data[i].img,
-          type: data[i].type
+          avg_spawns: data[i].avg_spawns,
+          type: data[i].type,
+          height: data[i].height,
+          weight: data[i].weight,
+          weaknesses: data[i].weaknesses
         });
       }
     }
@@ -25,15 +32,30 @@ const mostrarImg = (array) => {
   let list = '';
   for (let i = 0; i < array.length; i++) {
     const card = `
-          <div class="card">
-          <p class="num">` + 'N.º ' + array[i].num + `</p>
-          <p class="pc">` + array[i].multipliers + `</p>
-          <img class="img-pok" src="` + array[i].img + `"/>
-          <p class="nom">` + array[i].name + `</p>
-          <p class="type">` + array[i].type.join(' - ') + `</p>
+    <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+          
+            <p class="num">` + 'N.º ' + array[i].num + `</p>
+            <p class="avg">` + array[i].avg_spawns + `</p>
+            <img class="img-pok" src="` + array[i].img + `"/>
+            <p class="nom">` + array[i].name + `</p>
+            <p class="type">` + array[i].type.join(' - ') + `</p>
         </div>
+        <div class="flip-card-back">
+            <p class="num">` + 'N.º ' + array[i].num + `</p>
+            <p class="pc">` + array[i].multipliers + `</p>
+            <p class="nom">` + array[i].name + `</p>
+            <p class="type">` + array[i].type.join(' - ') + `</p>
+            <p class="nom">` + array[i].height + `</p>
+            <p class="nom">` + array[i].weight + `</p>
+            <p class="type">` + array[i].weaknesses.join(' - ') + `</p>
+
+          </div>
+      </div>
       </div>
           `;
+      
     list += card;
   }
   return list;
@@ -71,3 +93,5 @@ const buscarHuevos = (data) => {
 window.buscarTipo = buscarTipo;
 window.mostrarImg = mostrarImg;
 window.buscarHuevos = buscarHuevos;
+window.example = example;
+

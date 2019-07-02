@@ -21,26 +21,17 @@ determina sus puntos débiles y fuertes frente a la batalla. Conócelos todos.
 Con esta data se implementaron las siguientes historias de usuario:
 
 - **`HISTORIA DE USUARIO 1`** Como usuaria quiero poder loguearme para acceder al sitio web.
-  - Criterios de aceptación:
-    1. El usuario ingresa "LABORATORIA" como su nombre y contraseña.
-    2. El usuario sólo puede logearse cuando sus credenciales(usuario y cotraseña) son válidas, para ello tendrán hasta 3 intentos.
-    3. Al tercer intento se desactiva el formulario, accediendo nuevamente refrescando la página.
-
+  
 - **`HISTORIA DE USUARIO 2`** Como usuaria quiero poder ver a todos los pokemones al ingresar a la página para saber cuántos tengo y cuántos me faltan atrapar.
-  - Criterios de aceptación:
-    
+     
 - **`HISTORIA DE USUARIO 3`** Como usuaria quiero poder elegir un pokemon para ver sus características más relevantes.
-  - Criterios de aceptación:
-
+ 
 - **`HISTORIA DE USUARIO 4`** Como usuaria quiero poder ordenar por orden alfabético (A-Z y Z-A) y frecuencia de aparición (_spawn_) de manera ascendente (menor a mayor) o descendente (mayor a menor) a los pokemones para poder ubicarlos fácilmente y saber cuáles son los más difíciles de atrapar.
-  - Criterios de aceptación:
-
+ 
 - **`HISTORIA DE USUARIO 5`** Como usuaria quiero poder filtrar a los pokemones por tipo y debilidades para saber quiénes y cuántos son de cada tipo y tienen esa debilidad.
-  - Criterios de aceptación:
-
+ 
 - **`HISTORIA DE USUARIO 6`** Como usuaria quiero poder obtener el porcentaje de los pokemones que aparecen en los diferentes tipos de huevo para saber qué huevos eclosionar.
-  - Criterios de aceptación:
-
+ 
 ## Investigacion UX:
 
 ### Usuarios y objetivos en relación con el producto.
