@@ -1,10 +1,12 @@
 const usuario = document.getElementById('user');
 const contraseña = document.getElementById('pass');
 const ingresar = document.getElementById('ingresar');
+
 const screenInicioSesion = document.getElementById('screen-inicio-sesion');
 const screenHome = document.getElementById('screen-home');
 const screenPokemon = document.getElementById('screen-pokemon');
 const screenEclosionEgg = document.getElementById('screen-eclosion-egg');
+
 const claveIncorrecta = document.getElementById('clave-incorrecta');
 const header = document.getElementById('header');
 const footer = document.getElementById('footer');
@@ -47,39 +49,22 @@ home.addEventListener('click', () => {
   document.getElementById('filtro').classList.add('hide');
   huevosKm.classList.remove('active');
 });
-const buscar = document.getElementById('buscar');
+
+const data = POKEMON.pokemon;
+
 let text = '';
-
+let arrayType = [];
 filtro.addEventListener('change', () => {
-  const x = document.getElementById('filtro').value;
-  text = buscarPokemon(x);  
-  document.getElementById('pok-filtrados').innerHTML = text;
-});
-
-const buscarPokemon = (string) => {
-  let list = '';
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('count-filtro').innerHTML = '';
   document.getElementById('pokemones').innerHTML = '';
-  for (let i = 0; i < POKEMON.pokemon.length; i++) {
-    for (let j = 0; j < POKEMON.pokemon[i].type.length; j++) {
-      if (POKEMON.pokemon[i].type[j] === string) {
-        const card = `
-         <div class="card">
-            <p class="num">` + 'N.º ' + POKEMON.pokemon[i].num + `</p>
-            <p class="pc">` + POKEMON.pokemon[i].multipliers + `</p>
-           <img class="img-pok" src="` + POKEMON.pokemon[i].img + `"/>
-           <p class="nom">` + POKEMON.pokemon[i].name + `</p>
-           <p class="type">` + POKEMON.pokemon[i].type.join(' - ') + `</p>
-         </div>
-         </div>
-      `;
-        list += card;
-      }
-    }
-  }
-  return list;
-};
+  const x = document.getElementById('filtro').value;
+  arrayType = buscarTipo(data, x);
+  console.log(x);
+  console.log(arrayType);
+  text = mostrarImg(arrayType);
+  document.getElementById('pok-filtrados').innerHTML = text;
+});
 
 const verPokemones = document.getElementById('ver-pokemones');
 verPokemones.addEventListener('click', () => {
@@ -91,25 +76,13 @@ verPokemones.addEventListener('click', () => {
   verPokemones.classList.add('active');
   huevosKm.classList.remove('active');
 
-  let list = '';
   
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pok-filtrados').innerHTML = '';
   document.getElementById('count-filtro').innerHTML = '';
-
-  for (let i = 0; i < POKEMON.pokemon.length; i++) {
-    const card = `
-      <div class="card">
-        <p class="num">` + 'N.º ' + POKEMON.pokemon[i].num + `</p>
-        <p class="pc">` + POKEMON.pokemon[i].multipliers + `</p>
-        <img class="img-pok" src="` + POKEMON.pokemon[i].img + `"/>
-        <p class="nom">` + POKEMON.pokemon[i].name + `</p>
-        <p class="type">` + POKEMON.pokemon[i].type.join(' - ') + `</p>
-      </div>
-    </div>
-      `;
-    list += card;
-  }
+  let list = '';
+  list = mostrarImg(data);
+  
   document.getElementById('pokemones').innerHTML = list;
 });
 
