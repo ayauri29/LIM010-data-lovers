@@ -6,7 +6,6 @@
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">-->
   <link rel="icon" type="image/png" href="../img/pokemon.png" />
   
 </head>
@@ -14,23 +13,13 @@
 <body class="fondo1">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <header id="header" class="hide">
-    <div>
-      <i class="fa fa-bars barra-nav" aria-hidden="true"></i>
       <h1>Pokémon GO</h1>
-    </div>
-    <!--<div>
-      <button type="button" class="contenido" id="home"><i id="i-home" class="nav fa fa-home"
-          aria-hidden="true"></i>Home</button>
-      <button type="button" class="contenido" id="ver-pokemones"><img id="pokebola" class="icon-pok" alt="icono-pokebola" src="../img/pokeball (1).png"/>Pokemon</button>
-      <button type="button" class="contenido" id="huevos-km"><img id="egg-pok" class="icon-pok" alt="icono-huevo" src="../img/huevo.png"/>Egg</button>
-    </div>-->
     <nav class="menu">
       <ul>
         <li><a href="#" id="home" class="contenido"><i id="i-home" class="nav fa fa-home"
           aria-hidden="true"></i>Home</a></li>
         <li><a href="#" id="ver-pokemones" class="contenido"><img id="pokebola" class="icon-pok" alt="icono-pokebola" src="../img/pokeball (1).png"/>Pokemon</a></li>
         <li><a href="#" id="huevos-km" class="contenido"><img id="egg-pok" class="icon-pok" alt="icono-huevo" src="../img/huevo.png"/>Egg</a></li>
-        <!--<i class="nav fa fa-filter" aria-hidden="true"></i>-->
       </ul>
     </nav>
   </header>
@@ -49,9 +38,9 @@
         <p id="clave-incorrecta"></p>
       </form>
     </section>
-    <section id="screen-home" class="flex hide">
+    <section id="screen-home" class="flex-home hide">
       <div id="about-us">
-        <h1>Pokémon GO - Puntos fuertes y débiles de todos los tipos de Pokémon</h1>
+        <h2>Pokémon GO - Puntos fuertes y débiles de todos los tipos de Pokémon</h2>
         <p>Fuego, Hierba y Agua. Es relativamente obvio saber quién vence a quién. ¡Pero Pokémon no se detiene ahí! Te
           contamos todo sobre los tipos de Pokémon en Pokémon Go.
           Todos los Pokémon se dividen en distintos tipos. Un Pokémon puede ser de uno o más tipos, que determinan
@@ -63,7 +52,7 @@
     <section id="screen-pokemon" class="flex-poke hide">
       <form>
         <select id="filtro">
-          <option value="" disabled selected>Todos</option>
+          <option value="0" selected disabled>Elija tipo</option>
           <option value="Grass">Hierba</option>
           <option value="Poison">Veneno</option>
           <option value="Fire">Fuego</option>
@@ -80,7 +69,30 @@
           <option value="Electric">Eléctrico</option>
           <option value="Dragon">Dragon</option>
         </select>
+        <select id="debilidad">
+          <option value="0" selected disabled>Elija debilidad</option>
+          <option value="Grass">Hierba</option>
+          <option value="Poison">Veneno</option>
+          <option value="Fire">Fuego</option>
+          <option value="Water">Agua</option>
+          <option value="Normal">Normal</option>
+          <option value="Flying">Volador</option>
+          <option value="Fighting">Lucha</option>
+          <option value="Ground">Tierra</option>
+          <option value="Rock">Roca</option>
+          <option value="Bug">Bicho</option>
+          <option value="Ghost">Fantasma</option>
+          <option value="Psychic">Psíquico</option>
+          <option value="Ice">Hielo</option>
+          <option value="Electric">Eléctrico</option>
+          <option value="Dragon">Dragon</option>
+          <option value="Dark">Dark</option>
+          <option value="Fairy">Fairy</option>
+          <option value="Steel">Steel</option>
+        </select>
       </form>
+      <p class= "white" id="count-atrapado"></p>
+      <p class= "white" id="count-no-atrapado"></p>
       <div id="container-cards">
         <p id="count-filtro"></p>
         <div id="pok-filtrados"></div>
@@ -94,12 +106,9 @@
   </main>
   <footer id="footer" class="hide">
     Copyright &#169;2019 ElizabethTR - AlbaYI. All Rights Reserved.
-  </footer>
-  
+  </footer> 
   <script src="./data/pokemon/pokemon.js"></script>
-  <!-- <script src="./data/worldbank/worldbank.js"></script> -->
   <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
-
 </html>
