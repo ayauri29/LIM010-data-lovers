@@ -51,14 +51,37 @@ home.addEventListener('click', () => {
 let text = '';
 let arrayType = [];
 
+
 filtro.addEventListener('change', () => {
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pokemones').innerHTML = '';
   const x = document.getElementById('filtro').value;
   arrayType = buscarTipo(data, x);
+  const count = separarAtrapados(arrayType);
   text = mostrarImg(arrayType);
+  document.getElementById('debilidad').selectedIndex = 0;
+  document.getElementById('count-atrapado').innerHTML = 'Atrapados: ' + count.atrapado;
+  document.getElementById('count-no-atrapado').innerHTML = 'No atrapados: ' + count.noAtrapado;
   document.getElementById('pok-filtrados').innerHTML = text;
 });
+
+let texto = '';
+let arrayDebil = [];
+
+debilidad.addEventListener('change', () => {
+  document.getElementById('count-egg').innerHTML = '';
+  // document.getElementById('pok-filtrados').innerHTML = '';
+  document.getElementById('pokemones').innerHTML = '';
+  const x = document.getElementById('filtro').value;
+  const debil = document.getElementById('debilidad').value;
+  arrayDebil = buscarDebil(data, x, debil);
+  const count = separarAtrapados(arrayDebil);
+  texto = mostrarImg(arrayDebil);
+  document.getElementById('count-atrapado').innerHTML = 'Atrapados: ' + count.atrapado;
+  document.getElementById('count-no-atrapado').innerHTML = 'No atrapados: ' + count.noAtrapado;
+  document.getElementById('pok-filtrados').innerHTML = texto;
+});
+
 
 let list = '';
 const verPokemones = document.getElementById('ver-pokemones');
@@ -72,7 +95,12 @@ verPokemones.addEventListener('click', () => {
   huevosKm.classList.remove('active');
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pok-filtrados').innerHTML = '';
+  const count = separarAtrapados(data);
+  document.getElementById('count-atrapado').innerHTML = 'Atrapados: ' + count.atrapado;
+  document.getElementById('count-no-atrapado').innerHTML = 'No atrapados: ' + count.noAtrapado;
+
   list = mostrarImg(data);
+  
   document.getElementById('pokemones').innerHTML = list;
 });
 

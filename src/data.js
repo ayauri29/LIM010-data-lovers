@@ -12,24 +12,12 @@ const buscarTipo = (data, tipo) => {
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[i].type.length; j++) {
       if (data[i].type[j] === tipo) {
-        array.push({
-          num: data[i].num,
-          multipliers: data[i].multipliers,
-          name: data[i].name,
-          img: data[i].img,
-          avgSpawns: data[i].avg_spawns,
-          type: data[i].type,
-          height: data[i].height,
-          weight: data[i].weight,
-          weaknesses: data[i].weaknesses,
-          nextEvolution: data[i].next_evolution
-        });
+        array.push(data[i]);
       }
     }
-  }
+  } 
   return array;
 };
-
 const mostrarImg = (array) => {
   let list = '';
   for (let i = 0; i < array.length; i++) {
@@ -86,7 +74,6 @@ const mostrarImg = (array) => {
               <p class="data-value"><span class="data-type">Tiempo de aparición:</span>` + array[i].spawn_time + `</p>
               <p class="data-value"><span class="data-type">Debilidades:</span>` + array[i].weaknesses.join(' - ') + `</p>
               <p class="data-value"><span class="data-type">Evoluciones:</span>` + array[i].next_evolution + `</p>
-
             </div>
         </div>
         </div>
@@ -96,6 +83,36 @@ const mostrarImg = (array) => {
     }
   }
   return list;
+};
+
+const separarAtrapados = (array) => {
+  let atrapado = 0;
+  let noAtrapado = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].multipliers === null) {
+      noAtrapado++;
+    } else {
+      atrapado++;
+    }
+  }
+  return {
+    atrapado: atrapado,
+    noAtrapado: noAtrapado
+  };
+};
+
+const buscarDebil = (data, tipo, debilidad) => {
+  let array = [];
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data[i].weaknesses.length; j++) {
+      for (let x = 0; x < data[i].type.length; x++) {
+        if (data[i].weaknesses[j] === debilidad && data[i].type[x] === tipo) {
+          array.push(data[i]);
+        }
+      }
+    }
+  }
+  return array;
 };
 
 const buscarHuevos = (data) => {
@@ -118,4 +135,5 @@ window.buscarTipo = buscarTipo;
 window.mostrarImg = mostrarImg;
 window.buscarHuevos = buscarHuevos;
 window.example = example;
-
+window.buscarDebil = buscarDebil;
+window.separarAtrapados = separarAtrapados;
