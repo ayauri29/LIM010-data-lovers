@@ -54,7 +54,6 @@ let arrayType = [];
 
 filtro.addEventListener('change', () => {
   document.getElementById('count-egg').innerHTML = '';
-  // document.getElementById('pok-filtrados').innerHTML = '';
   document.getElementById('pokemones').innerHTML = '';
   const x = document.getElementById('filtro').value;
   arrayType = buscarTipo(data, x);
