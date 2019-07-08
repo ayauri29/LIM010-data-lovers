@@ -18,6 +18,7 @@ const buscarTipo = (data, tipo) => {
   } 
   return array;
 };
+
 const mostrarImg = (array) => {
   let list = '';
   for (let i = 0; i < array.length; i++) {
@@ -115,20 +116,30 @@ const buscarDebil = (data, tipo, debilidad) => {
   return array;
 };
 
-const buscarHuevos = (data) => {
-  let count2 = data.filter(pok => (pok.egg === '2 km')).length;
-  let count5 = data.filter(pok => (pok.egg === '5 km')).length;
-  let count10 = data.filter(pok => (pok.egg === '10 km')).length;
-  let ncount = data.filter(pok => (pok.egg === 'Not in Eggs')).length;
+const buscarSoloDebil = (data, debilidad) => {
+  let array = [];
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i].egg);
+    for (let j = 0; j < data[i].weaknesses.length; j++) {
+      if (data[i].weaknesses[j] === debilidad) {
+        array.push(data[i]);
+      }
+    }
   }
-  return {
-    count2: count2,
-    count5: count5,
-    count10: count10,
-    ncount: ncount
-  };
+  return array;
+};
+
+const buscarHuevos = (data) => {
+  let count2 = data.filter(pok => (pok.egg === '2 km'));
+  let count5 = data.filter(pok => (pok.egg === '5 km'));
+  let count10 = data.filter(pok => (pok.egg === '10 km'));
+  let ncount = data.filter(pok => (pok.egg === 'Not in Eggs'));
+
+  return [
+    count2,
+    count5,
+    count10,
+    ncount,
+  ];
 };
 
 const ordenar = (array, condicion) => {
@@ -176,11 +187,20 @@ const ordenar = (array, condicion) => {
   return ordered;
 };
 
+const llenarTabla = (array, index) => {
+  const tabla = [];
+  for (let i = 0; i < array[index].length; i++) {
+    tabla.push([array[index][i].name, '<img src="' + array[index][i].img + '">', (array[index][i].spawn_chance)]);
+  }
+  return tabla;
+};
+
 window.buscarTipo = buscarTipo;
 window.mostrarImg = mostrarImg;
-window.buscarHuevos = buscarHuevos;
-window.example = example;
-window.buscarDebil = buscarDebil;
 window.separarAtrapados = separarAtrapados;
+window.buscarDebil = buscarDebil;
+window.buscarSoloDebil = buscarSoloDebil;
+window.buscarHuevos = buscarHuevos;
 window.ordenar = ordenar;
-
+window.llenarTabla = llenarTabla;
+window.example = example;

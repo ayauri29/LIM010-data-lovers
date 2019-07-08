@@ -243,9 +243,15 @@ footer {
     font-size: 20px;
     color: white;
     margin: 0;
-  }
+}
 
 
+
+.filter{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
 
 .hide{
     display:none;
@@ -283,10 +289,13 @@ footer {
  }
  #count-egg{
     text-align: center;
-    color: black;
     font-weight: bold;
     padding: 5px;
- }
+    background: #F8F8F8;
+    color: #0D47A1;
+    border-bottom: 5px solid gold;
+}
+
  .flip-card {
     height: 300px;
     perspective: 1000px;
@@ -388,6 +397,44 @@ footer {
     background-color: #0d47a1;
 }
 
+.buttonkm{
+    border-radius: 3px;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    margin: 20px;
+    font-weight: bold;
+}
+
+.km2{
+    color: white;
+    background-color: #3366cc;
+}
+
+.km5{
+    color: white;
+    background-color: #dc3912;
+}
+
+.km10{
+    color: white;
+    background-color: #ff9900;
+}
+
+.buttons{
+    text-align: center;
+}
+
+.grafic-pie{
+    margin: 0 50px;
+    width: 40%;
+}
+
+h3{
+    color: gold;
+    font-size: 25px;
+    text-align: center;
+}
+
 @media screen and (min-width:625px){
  
     #logo{
@@ -465,5 +512,10 @@ footer {
         width: 50%;
         font-size: 18px;
         line-height: 30px;
+    }
+    #about-us p{
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        color: white;
     }
 }
