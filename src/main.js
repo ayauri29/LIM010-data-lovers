@@ -74,18 +74,30 @@ debilidad.addEventListener('change', () => {
   document.getElementById('pokemones').innerHTML = '';
   const x = document.getElementById('filtro').value;
   const debil = document.getElementById('debilidad').value;
-  arrayDebil = buscarDebil(data, x, debil);
-  if (arrayDebil.length === 0) {
-    document.getElementById('pok-filtrados').innerHTML = '<img src="https://vignette.wikia.nocookie.net/pokpiruleta/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140624162904&path-prefix=es"><p>No se encontraron resultados.</p>';
-    document.getElementById('count-trapped').innerHTML = '';
-    document.getElementById('count-no-trapped').innerHTML = '';
-  } else {
-    const count = separarAtrapados(arrayDebil);
+  let count = {};
+  
+  if (x === '0') {
+    arrayDebil = buscarSoloDebil(data, debil);
+    count = separarAtrapados(arrayDebil);
     texto = mostrarImg(arrayDebil);
     document.getElementById('order').selectedIndex = 0;
     document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + count.atrapado;
     document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
     document.getElementById('pok-filtrados').innerHTML = texto;
+  } else {
+    arrayDebil = buscarDebil(data, x, debil);
+    if (arrayDebil.length === 0) {
+      document.getElementById('pok-filtrados').innerHTML = '<img src="https://vignette.wikia.nocookie.net/pokpiruleta/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140624162904&path-prefix=es"><p>No se encontraron resultados.</p>';
+      document.getElementById('count-trapped').innerHTML = '';
+      document.getElementById('count-no-trapped').innerHTML = '';
+    } else {
+      count = separarAtrapados(arrayDebil);
+      texto = mostrarImg(arrayDebil);
+      document.getElementById('order').selectedIndex = 0;
+      document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + count.atrapado;
+      document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
+      document.getElementById('pok-filtrados').innerHTML = texto;
+    }
   }
 });
 
@@ -95,13 +107,21 @@ order.addEventListener('change', ()=>{
   const tipo = document.getElementById('filtro').value;
   const debil = document.getElementById('debilidad').value;
   const order = document.getElementById('order').value;
-  if (debil === '0') {
+
+  if (debil === '0' && tipo === '0') {
+    ordered = ordenar(data, order);
+    text = mostrarImg(ordered);
+  } else if (debil === '0') {
     arrayType = buscarTipo(data, tipo);
     ordered = ordenar(arrayType, order);
     text = mostrarImg(ordered);
+  } else if (tipo === '0') {
+    arrayDebil = buscarSoloDebil(data, debil);
+    ordered = ordenar(arrayDebil, order);
+    text = mostrarImg(ordered);
   } else {
     arrayDebil = buscarDebil(data, tipo, debil);
-    const ordered = ordenar(arrayDebil, order);
+    ordered = ordenar(arrayDebil, order);
     text = mostrarImg(ordered);
   }
   document.getElementById('pok-filtrados').innerHTML = text;
@@ -152,51 +172,73 @@ huevosKm.addEventListener('click', () => {
   document.getElementById('order').selectedIndex = 0;
   document.getElementById('debilidad').selectedIndex = 0;
   document.getElementById('filtro').selectedIndex = 0;
+  graficarPie();
+});
 
-  const eggs = buscarHuevos(data);
-  
+const eggs = buscarHuevos(data);
+const egg2 = document.getElementById('2km');
+egg2.addEventListener('click', ()=>{
+  graficarPie();
+  constuirGrafica(0);
+});
+
+const egg5 = document.getElementById('5km');
+egg5.addEventListener('click', ()=>{
+  graficarPie();
+  constuirGrafica(1);
+});
+
+const egg10 = document.getElementById('10km');
+egg10.addEventListener('click', ()=>{
+  graficarPie();
+  constuirGrafica(2);  
+});
+
+const constuirGrafica = (index) => {
   const dataDraw = new google.visualization.DataTable();
+  dataDraw.addColumn('string', 'Nombre');
   dataDraw.addColumn('string', 'Pokemon');
-  dataDraw.addColumn('number', '%Frec. aparición');
-  dataDraw.addRows(
-    [
-      ['Huevos de 2km', eggs.count2],
-      ['Huevos de 5km', eggs.count5],
-    ]
-  );
+  dataDraw.addColumn('number', '% de aparición');
 
+  let tabla = [];
+  tabla = llenarTabla(eggs, index);
+
+  dataDraw.addRows(tabla);
+
+  const opciones = {
+    'allowHtml': true,
+    'showRowNumber': true,
+    'width': 500,
+    'height': 400
+  };
+  const grafica = new google.visualization.Table(document.getElementById('table'));
+  grafica.draw(dataDraw, opciones);
+};
+
+const graficarPie = () => {
   const dataDr = new google.visualization.DataTable();
   dataDr.addColumn('string', 'km');
   dataDr.addColumn('number', 'count');
   dataDr.addRows(
     [
-      ['Huevos de 2km', eggs.count2],
-      ['Huevos de 5km', eggs.count5],
-      ['Huevos de 10km', eggs.count10],
-      ['No tiene huevos', eggs.ncount]
+      ['Huevos de 2km', eggs[0].length],
+      ['Huevos de 5km', eggs[1].length],
+      ['Huevos de 10km', eggs[2].length],
+      ['No tiene huevos', eggs[3].length]
 
     ]
   );
 
-  const opciones = {
-    'showRowNumber': true,
-    'width': 300,
-    'height': 220
-  };
-  const grafica = new google.visualization.Table(document.getElementById('table'));
-  grafica.draw(dataDraw, opciones);
-
   const opc = {
     'title': 'Porcentaje a eclosionar por tipo de km',
-    'width': 480,
+    'width': 513,
     'height': 220
   };
   const grafic = new google.visualization.PieChart(document.getElementById('charts'));
   grafic.draw(dataDr, opc);
-  
-  document.getElementById('count-egg').innerHTML = 'Huevos de 2km: ' + eggs.count2 + '<br>' + 'Huevos de 5km: ' + eggs.count5 + '<br>' +
-    ' Huevos de 10km: ' + eggs.count10 + '<br>' + ' No tienen huevos: ' + eggs.ncount;
-});
+  document.getElementById('count-egg').innerHTML = 'Huevos de 2km: ' + eggs[0].length + '<br>' + 'Huevos de 5km: ' + eggs[1].length + '<br>' +
+    ' Huevos de 10km: ' + eggs[2].length + '<br>' + ' No tienen huevos: ' + eggs[3].length;
+};
 
 const up = document.querySelector('#up');
 window.addEventListener('scroll', () =>{
