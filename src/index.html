@@ -7,19 +7,20 @@
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../img/pokemon.png" />
-  
+
 </head>
 
 <body class="fondo1">
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <header id="header" class="hide">
-      <h1>Pokémon GO</h1>
+    <h1>Pokémon GO</h1>
     <nav class="menu">
       <ul>
-        <li><a href="#" id="home" class="contenido"><i id="i-home" class="nav fa fa-home"
-          aria-hidden="true"></i>Home</a></li>
-        <li><a href="#" id="ver-pokemones" class="contenido"><img id="pokebola" class="icon-pok" alt="icono-pokebola" src="../img/pokeball (1).png"/>Pokemon</a></li>
-        <li><a href="#" id="huevos-km" class="contenido"><img id="egg-pok" class="icon-pok" alt="icono-huevo" src="../img/huevo.png"/>Egg</a></li>
+        <li><a href="#" id="home"><i id="i-home" class="nav fa fa-home" aria-hidden="true"></i>HOME</a></li>
+        <li><a href="#" id="ver-pokemones"><img id="pokebola" class="icon-pok" alt="icono-pokebola"
+              src="../img/pokeball (1).png" />POKEMON</a></li>
+        <li><a href="#" id="huevos-km"><img id="egg-pok" class="icon-pok" alt="icono-huevo"
+              src="../img/huevo.png" />EGG</a></li>
       </ul>
     </nav>
   </header>
@@ -48,8 +49,10 @@
           determina sus puntos débiles y fuertes frente a la batalla. Conócelos todos.</p>
       </div>
       <img id="gif-pokemon" alt="gif-de-pikachu" src="https://media.giphy.com/media/aNp3tRXvsxRS0/giphy.gif" />
+
     </section>
     <section id="screen-pokemon" class="flex-poke hide">
+      <button id="up" class="hide"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></button>
       <form>
         <select id="filtro">
           <option value="0" selected disabled>Elija tipo</option>
@@ -90,9 +93,16 @@
           <option value="Fairy">Fairy</option>
           <option value="Steel">Steel</option>
         </select>
+        <select id="order">
+          <option value="0" selected disabled>Elija orden</option>
+          <option value="order-a-z">Ordenar A-Z</option>
+          <option value="order-z-a">Ordenar Z-A</option>
+          <option value="order-asc">Frecuencia de aparición ASC</option>
+          <option value="order-des">Frecuencia de aparición DES</option>
+        </select>
       </form>
-      <p class= "white" id="count-atrapado"></p>
-      <p class= "white" id="count-no-atrapado"></p>
+      <p class="status trapped" id="count-trapped"></p><br>
+      <p class="status no-trapped" id="count-no-trapped"></p>
       <div id="container-cards">
         <p id="count-filtro"></p>
         <div id="pok-filtrados"></div>
@@ -101,14 +111,23 @@
     </section>
     <section id="screen-eclosion-egg" class="hide">
       <p id="count-egg"></p>
+      <div id="table"></div>
       <div id="charts"></div>
+
     </section>
   </main>
   <footer id="footer" class="hide">
-    Copyright &#169;2019 ElizabethTR - AlbaYI. All Rights Reserved.
-  </footer> 
+    <p>Copyright &#169;2019 ElizabethTR - AlbaYI. All Rights Reserved.</p>
+    <p>
+        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-github" aria-hidden="true"></i>
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+      </p>
+  </footer>
   <script src="./data/pokemon/pokemon.js"></script>
   <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
