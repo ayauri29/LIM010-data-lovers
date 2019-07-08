@@ -31,12 +31,12 @@ const mostrarImg = (array) => {
               <p class="data-value white"><span class="data-type">Estado:</span>` + 'NO ATRAPADO' + `</p>
               <p class="data-value white"><span class="data-type">Frec. aparición:</span>` + array[i].avg_spawns + '%' + `</p>
               <img class="img-pok" src="` + array[i].img + `"/>
-              <p class="nom">` + array[i].name + `</p>
+              <p class="nom orange">` + array[i].name + `</p>
               <p class="data-value white"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
           </div>
           <div class="flip-card-back">
      
-              <p class="nom">` + array[i].name + `</p>          
+              <p class="nom black">` + array[i].name + `</p>          
               <p class="data-value"><span class="data-type">Estatura:</span>` + array[i].height + `</p>
               <p class="data-value"><span class="data-type">Peso:</span>` + array[i].weight + `</p>
               <p class="data-value"><span class="data-type">Huevos:</span>` + array[i].egg + `</p>
@@ -57,15 +57,15 @@ const mostrarImg = (array) => {
         <div class="flip-card-front">
             
               <p class="num">` + 'N.º ' + array[i].num + `</p>
-              <p class="data-value white"><span class="data-type">Estado:</span>` + 'ATRAPADO' + `</p>
-              <p class="data-value white"><span class="data-type">Frec. aparición:</span>` + array[i].avg_spawns + '%' + `</p>
+              <p class="data-value blue"><span class="data-type">Estado:</span>` + 'ATRAPADO' + `</p>
+              <p class="data-value blue"><span class="data-type">Frec. aparición:</span>` + array[i].avg_spawns + '%' + `</p>
               <img class="img-pok" src="` + array[i].img + `"/>
-              <p class="nom">` + array[i].name + `</p>
-              <p class="data-value white"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
+              <p class="nom orange">` + array[i].name + `</p>
+              <p class="data-value blue"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
           </div>
           <div class="flip-card-back">
   
-              <p class="nom">` + array[i].name + `</p>   
+              <p class="nom black">` + array[i].name + `</p>   
               <p class="data-value"><span class="data-type">CP:</span>` + array[i].multipliers.join(' - ') + `</p>       
               <p class="data-value"><span class="data-type">Estatura:</span>` + array[i].height + `</p>
               <p class="data-value"><span class="data-type">Peso:</span>` + array[i].weight + `</p>
@@ -131,9 +131,56 @@ const buscarHuevos = (data) => {
   };
 };
 
+const ordenar = (array, condicion) => {
+  let ordered = [];
+  if (condicion === 'order-a-z') {
+    ordered = array.sort((first, second) => {
+      if (first.name > second.name) {
+        return 1; 
+      } else if (first.name === second.name) { 
+        return 0; 
+      }
+      return -1;
+    });
+  } else if (condicion === 'order-z-a') {
+    ordered = array.sort((first, second) => {
+      if (first.name < second.name) { 
+        return 1; 
+      }
+      if (first.name === second.name) { 
+        return 0; 
+      }
+      return -1;
+    });
+  } else if (condicion === 'order-asc') {
+    ordered = array.sort((first, second) => {
+      if (first.avg_spawns > second.avg_spawns) { 
+        return 1; 
+      }
+      if (first.avg_spawns === second.avg_spawns) { 
+        return 0; 
+      }
+      return -1;
+    });
+  } else {
+    ordered = array.sort((first, second) => {
+      if (first.avg_spawns < second.avg_spawns) { 
+        return 1; 
+      }
+      if (first.avg_spawns === second.avg_spawns) { 
+        return 0; 
+      }
+      return -1;
+    });
+  }
+  return ordered;
+};
+
 window.buscarTipo = buscarTipo;
 window.mostrarImg = mostrarImg;
 window.buscarHuevos = buscarHuevos;
 window.example = example;
 window.buscarDebil = buscarDebil;
 window.separarAtrapados = separarAtrapados;
+window.ordenar = ordenar;
+
