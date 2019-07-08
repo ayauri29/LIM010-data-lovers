@@ -154,14 +154,22 @@ const ordenar = (array, condicion) => {
     });
   } else if (condicion === 'order-asc') {
     ordered = array.sort((first, second) => {
-      if (first.avg_spawns > second.avg_spawns) { return 1; }
-      if (first.avg_spawns === second.avg_spawns) { return 0; }
+      if (first.avg_spawns > second.avg_spawns) { 
+        return 1; 
+      }
+      if (first.avg_spawns === second.avg_spawns) { 
+        return 0; 
+      }
       return -1;
     });
   } else {
     ordered = array.sort((first, second) => {
-      if (first.avg_spawns < second.avg_spawns) { return 1; }
-      if (first.avg_spawns === second.avg_spawns) { return 0; }
+      if (first.avg_spawns < second.avg_spawns) { 
+        return 1; 
+      }
+      if (first.avg_spawns === second.avg_spawns) { 
+        return 0; 
+      }
       return -1;
     });
   }

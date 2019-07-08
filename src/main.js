@@ -164,7 +164,7 @@ huevosKm.addEventListener('click', () => {
       ['Huevos de 5km', eggs.count5],
     ]
   );
-//https://stackoverflow.com/questions/12415689/how-to-dynamically-add-rows-columns-to-a-google-column-chart
+
   const dataDr = new google.visualization.DataTable();
   dataDr.addColumn('string', 'km');
   dataDr.addColumn('number', 'count');
@@ -207,6 +207,6 @@ window.addEventListener('scroll', () =>{
   }
 });
 
-up.addEventListener('click',() =>{
-  window.scrollTo(0,0);
+up.addEventListener('click', () =>{
+  window.scrollTo(0, 0);
 });

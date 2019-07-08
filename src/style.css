@@ -35,6 +35,19 @@ main{
     height: 80.2px;
     margin-bottom: 12.8px;
 }
+#google-play{
+    width: 35%;
+}
+#appstore{
+    width: 35%;
+}
+#logo-header{
+    display: none;
+}
+#logo-pok{
+    /*display: none;*/
+    width: auto;
+}
 .bold{
     font-weight: bold;
 }
@@ -88,15 +101,15 @@ ul li a{
     padding: 5px;
     border-radius: 5px;
 }
-h1{ 
+/*h1{ 
     display:none;
-}
+}*/
 h2{ 
     text-align: center;
     font-size: 16px;
     /*color: #063277;*/
     color: white;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 .icon-pok{
     width: 20px;
@@ -177,8 +190,9 @@ h2{
     padding: 5px;
 }
 #about-us{
-    width: 80%;
+    width: 90%;
     font-size: 14px;
+    text-align: center;
 }
 #about-us p{
     text-align: justify;
@@ -186,6 +200,8 @@ h2{
     background-color: rgba(0, 0, 0, 0.3);
         padding: 10px;
         color: white;
+        width: 85%;
+        margin: 20px auto;
 }
 #gif-pokemon{
     width: 50%;
@@ -378,6 +394,15 @@ footer {
         margin-bottom: 3.75px;
         width: 156.5px;
         height: 96.25px;
+    }
+    #logo-header{
+        display: flex;
+        align-items: center;
+    }
+    #logo-pok{
+        /*display: block;*/
+        width: 25%;
+        margin: 0 5px;
     }
     #user, #pass, #ingresar{
         width: 335px;
