@@ -67,7 +67,7 @@ header{
     padding: 5px;
     border-radius: 5px;
 }*/
-a:hover{
+ul li a:hover{
     background-color: red;
     /*color: #000; */
 }
@@ -207,7 +207,7 @@ h2{
     width: 50%;
     height: 50%;
 }
-#filtro, #debilidad, #order{
+#filter, #weakness, #order{
     background: #f3f0f0;
     border-radius: 3px;
     color: #131b6b;
@@ -244,6 +244,12 @@ footer {
     color: white;
     margin: 0;
   }
+  .filter{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px;
+}
 
 
 
@@ -281,12 +287,7 @@ footer {
  .black{
     background: black;
  }
- #count-egg{
-    text-align: center;
-    color: black;
-    font-weight: bold;
-    padding: 5px;
- }
+ 
  .flip-card {
     height: 300px;
     perspective: 1000px;
@@ -387,8 +388,51 @@ footer {
   #up:hover {
     background-color: #0d47a1;
 }
+.buttonkm{
+    border-radius: 3px;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    font-weight: bold;
+    margin: 10px auto;
+    display: inherit;
+}
 
-@media screen and (min-width:625px){
+.km2{
+    color: white;
+    background-color: #3366cc;
+}
+
+.km5{
+    color: white;
+    background-color: #dc3912;
+}
+
+.km10{
+    color: white;
+    background-color: #ff9900;
+}
+
+.buttons{
+    text-align: center;
+}
+
+.graphic-pie{
+    display: none;
+}
+
+h3{
+    color: gold;
+    font-size: 25px;
+    text-align: center;
+}
+
+/* CSS TABLE */
+.width{
+    width: 65%;
+}
+
+
+@media screen and (min-width:764px){
  
     #logo{
         margin-bottom: 3.75px;
@@ -466,4 +510,39 @@ footer {
         font-size: 18px;
         line-height: 30px;
     }
+    .buttonkm{
+        display: inline;
+        margin: 10px 5px;
+        /*margin: 20px;*/
+    }
+    
+    .graphic-pie{
+        display: flex;
+        flex-direction: column;
+        text-align: -webkit-center;
+        margin: 0 auto;
+        /*width: 40%;*/
+    }
+    
+    h3{
+        color: gold;
+        font-size: 23px;
+        text-align: center;
+        width: 85%;
+        margin: auto;
+    }
+    #count-egg{
+        text-align: center;
+        font-weight: bold;
+        padding: 5px;
+        /*background: #F8F8F8;*/
+        color: #FFFFFF;
+        border-bottom: 5px solid gold;
+        width: 50%;
+        margin: 20px auto;
+     }
+     .filter{
+         justify-content: space-around;
+         align-items: center;         
+     }
 }
