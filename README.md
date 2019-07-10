@@ -45,6 +45,12 @@ Esta fue la primera idea de como podría visualizarse nuestra página, definiend
 
 ### Resumen del Feedback
 
+Al termino del segundo sprint tuvimos el siguiente feedback:
+- Encabezado y contenido: Se nos sugirió poner el título más grande , centrado y separado del contexto en la pantalla del home.
+- Logo en el home: Se nos sugirió poner un logo en el HEADER junto al nombre de pokemon.
+- Pokemon filtro en ingles: Ya que la data está en inglés, se sugirió que los filtros para búsqueda deberían estar también en inglés.
+- Screen-egg: En la pantalla del Screen-egg debemos mejorar el CSS y agregar un filtro donde se muestren los pokemones y  su frecuencia de aparicion según el tipo de huevo que tengan.
+
 ### Prototipo en FIGMA
 
 
