@@ -47,7 +47,9 @@ home.addEventListener('click', () => {
   seePokemons.classList.remove('active');
   document.getElementById('filter').classList.add('hide');
   eggsKm.classList.remove('active');
+  document.getElementById('table').innerHTML = '';
 });
+
 let text = '';
 let arrayType = [];
 
@@ -138,6 +140,7 @@ seePokemons.addEventListener('click', () => {
   eggsKm.classList.remove('active');
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pok-filtrados').innerHTML = '';
+  document.getElementById('table').innerHTML = '';
   
   document.getElementById('order').selectedIndex = 0;
   document.getElementById('weakness').selectedIndex = 0;
@@ -146,7 +149,7 @@ seePokemons.addEventListener('click', () => {
   document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + count.atrapado;
   document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
 
-  list = showImg(data);
+  list = showImg(sortId(data));
   
   document.getElementById('pokemones').innerHTML = list;
 });
