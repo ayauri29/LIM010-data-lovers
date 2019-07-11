@@ -149,7 +149,7 @@ seePokemons.addEventListener('click', () => {
   document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + count.atrapado;
   document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
 
-  list = showImg(data);
+  list = showImg(sortId(data));
   
   document.getElementById('pokemones').innerHTML = list;
 });
