@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Data Lovers</title>
+  <title>PokémonGO</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../img/pokemon.png" />
@@ -13,26 +13,24 @@
 <body class="fondo1">
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <header id="header" class="hide">
-    <!--<h1>Pokémon GO</h1>-->
     <div id="logo-header">
-        <img id="logo-pok" alt="pokeball-go"
-        src="../img/ball.png"/>
-        <h1>Pokémon GO</h1>
-        </div>
+      <img id="logo-pok" alt="pokeball-go" src="../img/ball.png" />
+      <h1>Pokémon GO</h1>
+    </div>
     <nav class="menu">
       <ul>
         <li><a href="#" id="home"><i id="i-home" class="nav fa fa-home" aria-hidden="true"></i>HOME</a></li>
-        <li><a href="#" id="ver-pokemones"><img id="pokebola" class="icon-pok" alt="icono-pokebola"
+        <li><a href="#" id="see-pokemons"><img id="pokebola" class="icon-pok" alt="icono-pokebola"
               src="../img/pokeball (1).png" />POKEMON</a></li>
-        <li><a href="#" id="huevos-km"><img id="egg-pok" class="icon-pok" alt="icono-huevo"
+        <li><a href="#" id="eggs-km"><img id="egg-pok" class="icon-pok" alt="icono-huevo"
               src="../img/huevo.png" />EGG</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="screen-inicio-sesion" class="flex">
+    <section id="screen-login" class="flex">
       <form id="enter" class="flex-form">
-        <img id="logo" alt="pokemon-go"
+        <img id="logo" alt="Logo de PokemonGO"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1280px-Pok%C3%A9mon_GO_logo.svg.png" />
         <label class="flex label">Usuario</label>
         <input type="text" id="user" required />
@@ -52,16 +50,19 @@
           Todos los Pokémon se dividen en distintos tipos. Un Pokémon puede ser de uno o más tipos, que determinan
           varias características sobre un Pokémon. Por un lado determina dónde le gusta vivir, pero también
           determina sus puntos débiles y fuertes frente a la batalla. Conócelos todos.</p>
-      <img id="google-play" alt="logo-google-play" src="../img/google-play-badge.png"/>
-      <img id="appstore" alt="logo-appstore-badge" src="../img/appstore-badge.png"/>
-        </div>
-      <img id="gif-pokemon" alt="gif-de-pikachu" src="https://media.giphy.com/media/aNp3tRXvsxRS0/giphy.gif" />
+        <a class="ctas-cta" target="blank"
+          href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo"><img id="google-play"
+            alt="Tienda de Google Play" src="../img/google-play-badge.png" /></a>
+        <a class="ctas-cta" target="blank" href="https://apps.apple.com/es/app/pokemon-go/id1094591345"><img
+            id="appstore" alt="App store" src="../img/appstore-badge.png" /></a>
+      </div>
+      <img id="gif-pokemon" alt="gif de pikachu" src="https://media.giphy.com/media/aNp3tRXvsxRS0/giphy.gif" /></a>
 
     </section>
     <section id="screen-pokemon" class="flex-poke hide">
       <button id="up" class="hide"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></button>
       <form>
-        <select id="filtro">
+        <select id="filter">
           <option value="0" selected disabled>Elija tipo</option>
           <option value="Grass">Hierba</option>
           <option value="Poison">Veneno</option>
@@ -79,7 +80,7 @@
           <option value="Electric">Eléctrico</option>
           <option value="Dragon">Dragon</option>
         </select>
-        <select id="debilidad">
+        <select id="weakness">
           <option value="0" selected disabled>Elija debilidad</option>
           <option value="Grass">Hierba</option>
           <option value="Poison">Veneno</option>
@@ -111,22 +112,21 @@
       <p class="status trapped" id="count-trapped"></p><br>
       <p class="status no-trapped" id="count-no-trapped"></p>
       <div id="container-cards">
-        <p id="count-filtro"></p>
+        <p id="count-filter"></p>
         <div id="pok-filtrados"></div>
         <div id="pokemones"></div>
       </div>
     </section>
     <section id="screen-eclosion-egg" class="filter hide">
-      <div class="grafic-pie">
+      <div class="graphic-pie">
         <h3>Gráfica de porcentaje correspondiente al tipo de huevo</h3>
         <p id="count-egg"></p>
         <div id="charts"></div>
       </div>
-      
-      <div class = "buttons">
-        <button class = "buttonkm km2" id ="2km">Huevos de 2 KM</button>
-        <button class = "buttonkm km5" id ="5km">Huevos de 5 KM</button>
-        <button class = "buttonkm km10" id ="10km">Huevos de 10 KM</button>
+      <div class="buttons">
+        <button class="buttonkm km2" id="2km">Huevos de 2 KM</button>
+        <button class="buttonkm km5" id="5km">Huevos de 5 KM</button>
+        <button class="buttonkm km10" id="10km">Huevos de 10 KM</button>
         <div id="table"></div>
       </div>
     </section>
@@ -135,11 +135,11 @@
   <footer id="footer" class="hide">
     <p>Copyright &#169;2019 ElizabethTR - AlbaYI. All Rights Reserved.</p>
     <p>
-        <i class="fa fa-facebook-official" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-github" aria-hidden="true"></i>
-        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-      </p>
+      <i class="fa fa-facebook-official" aria-hidden="true"></i>
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+      <i class="fa fa-github" aria-hidden="true"></i>
+      <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+    </p>
   </footer>
   <script src="./data/pokemon/pokemon.js"></script>
   <script src="data.js"></script>

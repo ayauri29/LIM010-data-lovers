@@ -67,7 +67,7 @@ header{
     padding: 5px;
     border-radius: 5px;
 }*/
-a:hover{
+ul li a:hover{
     background-color: red;
     /*color: #000; */
 }
@@ -207,7 +207,7 @@ h2{
     width: 50%;
     height: 50%;
 }
-#filtro, #debilidad, #order{
+#filter, #weakness, #order{
     background: #f3f0f0;
     border-radius: 3px;
     color: #131b6b;
@@ -218,14 +218,6 @@ h2{
 option[value=""][disabled] {
     display: none;
 }
-/*footer{
-    background: #000;
-    padding: 15px;
-    color: white;
-    font-size: 12px;
-    text-align: center;
-}*/
-
 
 footer {
     margin: 0;
@@ -234,7 +226,7 @@ footer {
     text-align: center;
   }
   footer p:nth-child(1){
-    /*font-family: 'Josefin Sans', sans-serif;*/
+  
     color: white;
     font-size: 11px;
     margin: 0px;
@@ -243,14 +235,12 @@ footer {
     font-size: 20px;
     color: white;
     margin: 0;
-}
-
-
-
-.filter{
+  }
+  .filter{
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    margin: 10px;
 }
 
 .hide{
@@ -263,8 +253,6 @@ footer {
 }
  .img-pok{
     padding: 8px;
-    /*background: #f3f0f0;
-    background: rgba(35, 34, 53, 0.3);*/
  }
  .num{
     text-align: left;
@@ -276,7 +264,6 @@ footer {
  .nom{
     color: #f8f8f8;
     font-weight: bold;
-    /*background: black;*/
     padding: 5px;
     margin: 5px 20px;
     border-radius: 5px;
@@ -287,15 +274,7 @@ footer {
  .black{
     background: black;
  }
- #count-egg{
-    text-align: center;
-    font-weight: bold;
-    padding: 5px;
-    background: #F8F8F8;
-    color: #0D47A1;
-    border-bottom: 5px solid gold;
-}
-
+ 
  .flip-card {
     height: 300px;
     perspective: 1000px;
@@ -325,17 +304,9 @@ footer {
     backface-visibility: hidden;
   }
   .flip-card-front {
-    /*background: #3eef8b85;*/
-    /*background: #5385e294;*/
     background: #F7F7F7;
-    /*background: linear-gradient(135deg, rgb(7, 24, 119) 0%, rgb(13, 195, 78) 50%, rgb(170, 234, 13) 100%);*/
-
-  } 
-  /*.flip-card-front-no {
-    /*background: #2d86e49e;*/
-    /*background: #6cc34a8a;*/
-   /*background: linear-gradient(135deg, rgb(8, 8, 8) 0%, rgb(84, 84, 74) 50%, rgb(20,78,117) 100%);*/
-  /*}*/
+      } 
+ 
   .flip-card-back {
     background-color: #FFC107;
     transform: rotateY(180deg);
@@ -396,13 +367,13 @@ footer {
   #up:hover {
     background-color: #0d47a1;
 }
-
 .buttonkm{
     border-radius: 3px;
     padding: 8px 16px;
     border: 1px solid transparent;
-    margin: 20px;
     font-weight: bold;
+    margin: 10px auto;
+    display: inherit;
 }
 
 .km2{
@@ -424,9 +395,8 @@ footer {
     text-align: center;
 }
 
-.grafic-pie{
-    margin: 0 50px;
-    width: 40%;
+.graphic-pie{
+    display: none;
 }
 
 h3{
@@ -435,7 +405,13 @@ h3{
     text-align: center;
 }
 
-@media screen and (min-width:625px){
+/* CSS TABLE */
+.width{
+    width: 65%;
+}
+
+
+@media screen and (min-width:764px){
  
     #logo{
         margin-bottom: 3.75px;
@@ -513,9 +489,39 @@ h3{
         font-size: 18px;
         line-height: 30px;
     }
-    #about-us p{
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 10px;
-        color: white;
+    .buttonkm{
+        display: inline;
+        margin: 10px 5px;
+        /*margin: 20px;*/
     }
+    
+    .graphic-pie{
+        display: flex;
+        flex-direction: column;
+        text-align: -webkit-center;
+        margin: 0 auto;
+        /*width: 40%;*/
+    }
+    
+    h3{
+        color: gold;
+        font-size: 23px;
+        text-align: center;
+        width: 85%;
+        margin: auto;
+    }
+    #count-egg{
+        text-align: center;
+        font-weight: bold;
+        padding: 5px;
+        /*background: #F8F8F8;*/
+        color: #FFFFFF;
+        border-bottom: 5px solid gold;
+        width: 50%;
+        margin: 20px auto;
+     }
+     .filter{
+         justify-content: space-around;
+         align-items: center;         
+     }
 }

@@ -7,7 +7,7 @@ const example = () => {
   return 'example';
 };
 
-const buscarTipo = (data, tipo) => {
+const searchType = (data, tipo) => {
   let array = [];
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[i].type.length; j++) {
@@ -18,8 +18,7 @@ const buscarTipo = (data, tipo) => {
   } 
   return array;
 };
-
-const mostrarImg = (array) => {
+const showImg = (array) => {
   let list = '';
   for (let i = 0; i < array.length; i++) {
     if (array[i].multipliers === null) {
@@ -30,7 +29,7 @@ const mostrarImg = (array) => {
             
               <p class="num">` + 'N.º ' + array[i].num + `</p>
               <p class="data-value white"><span class="data-type">Estado:</span>` + 'NO ATRAPADO' + `</p>
-              <p class="data-value white"><span class="data-type">Frec. aparición:</span>` + array[i].avg_spawns + '%' + `</p>
+              <p class="data-value white"><span class="data-type">Frec. aparición:</span>` + array[i].spawn_chance + `</p>
               <img class="img-pok" src="` + array[i].img + `"/>
               <p class="nom orange">` + array[i].name + `</p>
               <p class="data-value white"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
@@ -59,7 +58,7 @@ const mostrarImg = (array) => {
             
               <p class="num">` + 'N.º ' + array[i].num + `</p>
               <p class="data-value blue"><span class="data-type">Estado:</span>` + 'ATRAPADO' + `</p>
-              <p class="data-value blue"><span class="data-type">Frec. aparición:</span>` + array[i].avg_spawns + '%' + `</p>
+              <p class="data-value blue"><span class="data-type">Frec. aparición:</span>` + array[i].spawn_chance + `</p>
               <img class="img-pok" src="` + array[i].img + `"/>
               <p class="nom orange">` + array[i].name + `</p>
               <p class="data-value blue"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
@@ -86,7 +85,7 @@ const mostrarImg = (array) => {
   return list;
 };
 
-const separarAtrapados = (array) => {
+const divideAtrapped = (array) => {
   let atrapado = 0;
   let noAtrapado = 0;
   for (let i = 0; i < array.length; i++) {
@@ -102,12 +101,12 @@ const separarAtrapados = (array) => {
   };
 };
 
-const buscarDebil = (data, tipo, debilidad) => {
+const searchWeakness = (data, tipo, weakness) => {
   let array = [];
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[i].weaknesses.length; j++) {
       for (let x = 0; x < data[i].type.length; x++) {
-        if (data[i].weaknesses[j] === debilidad && data[i].type[x] === tipo) {
+        if (data[i].weaknesses[j] === weakness && data[i].type[x] === tipo) {
           array.push(data[i]);
         }
       }
@@ -116,11 +115,11 @@ const buscarDebil = (data, tipo, debilidad) => {
   return array;
 };
 
-const buscarSoloDebil = (data, debilidad) => {
+const searchOnlyWeakness = (data, weakness) => {
   let array = [];
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data[i].weaknesses.length; j++) {
-      if (data[i].weaknesses[j] === debilidad) {
+      if (data[i].weaknesses[j] === weakness) {
         array.push(data[i]);
       }
     }
@@ -128,7 +127,7 @@ const buscarSoloDebil = (data, debilidad) => {
   return array;
 };
 
-const buscarHuevos = (data) => {
+const searchEggs = (data) => {
   let count2 = data.filter(pok => (pok.egg === '2 km'));
   let count5 = data.filter(pok => (pok.egg === '5 km'));
   let count10 = data.filter(pok => (pok.egg === '10 km'));
@@ -142,7 +141,7 @@ const buscarHuevos = (data) => {
   ];
 };
 
-const ordenar = (array, condicion) => {
+const orderData = (array, condicion) => {
   let ordered = [];
   if (condicion === 'order-a-z') {
     ordered = array.sort((first, second) => {
@@ -165,20 +164,20 @@ const ordenar = (array, condicion) => {
     });
   } else if (condicion === 'order-asc') {
     ordered = array.sort((first, second) => {
-      if (first.avg_spawns > second.avg_spawns) { 
+      if (first.spawn_chance > second.spawn_chance) { 
         return 1; 
       }
-      if (first.avg_spawns === second.avg_spawns) { 
+      if (first.spawn_chance === second.spawn_chance) { 
         return 0; 
       }
       return -1;
     });
   } else {
     ordered = array.sort((first, second) => {
-      if (first.avg_spawns < second.avg_spawns) { 
+      if (first.spawn_chance < second.spawn_chance) { 
         return 1; 
       }
-      if (first.avg_spawns === second.avg_spawns) { 
+      if (first.spawn_chance === second.spawn_chance) { 
         return 0; 
       }
       return -1;
@@ -187,20 +186,21 @@ const ordenar = (array, condicion) => {
   return ordered;
 };
 
-const llenarTabla = (array, index) => {
+const pushTable = (array, index) => {
   const tabla = [];
   for (let i = 0; i < array[index].length; i++) {
-    tabla.push([array[index][i].name, '<img src="' + array[index][i].img + '">', (array[index][i].spawn_chance)]);
+    tabla.push([array[index][i].name, '<img class="width" src="' + array[index][i].img + '">', (array[index][i].spawn_chance)]);
   }
   return tabla;
 };
 
-window.buscarTipo = buscarTipo;
-window.mostrarImg = mostrarImg;
-window.separarAtrapados = separarAtrapados;
-window.buscarDebil = buscarDebil;
-window.buscarSoloDebil = buscarSoloDebil;
-window.buscarHuevos = buscarHuevos;
-window.ordenar = ordenar;
-window.llenarTabla = llenarTabla;
+window.searchType = searchType;
+window.showImg = showImg;
+window.divideAtrapped = divideAtrapped;
+window.searchWeakness = searchWeakness;
+window.searchOnlyWeakness = searchOnlyWeakness;
+window.searchEggs = searchEggs;
+window.orderData = orderData;
+window.pushTable = pushTable;
 window.example = example;
+
