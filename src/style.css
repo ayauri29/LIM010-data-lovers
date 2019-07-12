@@ -52,7 +52,7 @@ header{
     justify-content:space-around;
     flex-direction: column-reverse;
     align-items: center;
-    padding: 10px 20px;
+    padding: 15px 20px;
 }
 #search-by-name{
     margin: 5px;

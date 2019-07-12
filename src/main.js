@@ -178,8 +178,8 @@ searchButton.addEventListener('click', () => {
   document.getElementById('count-no-trapped').innerHTML = '';
   document.getElementById('container-trap').classList.add('hide');
   const searchText = document.getElementById('search').value;
-  let arrayName = searchName(data, searchText);
   let text = '';
+  let arrayName = searchName(data, searchText);
   if (arrayName.length !== 0) {
     text = showImg(arrayName);
     document.getElementById('pok-filtrados').innerHTML = text;

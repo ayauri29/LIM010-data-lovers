@@ -30,12 +30,12 @@ const showImg = (array) => {
               <p class="data-value white"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
           </div>
           <div class="flip-card-back">
-              <p class="nom black">` + array[i].name + `</p>          
-              <p class="data-value"><span class="data-type">Estatura:</span>` + array[i].height + `</p>
-              <p class="data-value"><span class="data-type">Peso:</span>` + array[i].weight + `</p>
-              <p class="data-value"><span class="data-type">Huevos:</span>` + array[i].egg + `</p>
-              <p class="data-value"><span class="data-type">Tiempo de aparición:</span>` + array[i].spawn_time + `</p>
-              <p class="data-value"><span class="data-type">Debilidades:</span>` + array[i].weaknesses.join(' - ') + '</p>';
+            <p class="nom black">` + array[i].name + `</p>          
+            <p class="data-value"><span class="data-type">Estatura:</span>` + array[i].height + `</p>
+            <p class="data-value"><span class="data-type">Peso:</span>` + array[i].weight + `</p>
+            <p class="data-value"><span class="data-type">Huevos:</span>` + array[i].egg + `</p>
+            <p class="data-value"><span class="data-type">Tiempo de aparición:</span>` + array[i].spawn_time + `</p>
+            <p class="data-value"><span class="data-type">Debilidades:</span>` + array[i].weaknesses.join(' - ') + '</p>';
 
       if (array[i].hasOwnProperty('prev_evolution')) {
         card += '<p class="data-value"><span class="data-type">Pre-evoluciones:</span>' + array[i].prev_evolution.map(evo => evo.name).join(' - ') + '</p>';
@@ -189,5 +189,6 @@ window.searchOnlyWeakness = searchOnlyWeakness;
 window.searchEggs = searchEggs;
 window.orderData = orderData;
 window.pushTable = pushTable;
+window.sortId = sortId;
 window.example = example;
 
