@@ -17,6 +17,10 @@
       <img id="logo-pok" alt="pokeball-go" src="../img/ball.png" />
       <h1>Pokémon GO</h1>
     </div>
+    <div id="search-by-name" class="hide">
+      <input type="text" class="search" placeholder="Busca por nombre" id="search" />
+      <button type="submit" class="searchbut" id="search-button"><i class="fa fa-search"></i></button>
+    </div>
     <nav class="menu">
       <ul>
         <li><a href="#" id="home"><i id="i-home" class="nav fa fa-home" aria-hidden="true"></i>HOME</a></li>
@@ -36,10 +40,10 @@
         <input type="text" id="user" required />
         <label class="flex label">Contraseña</label>
         <input type="password" id="pass" required />
-        <label class="flex olvidaste-contrasena">¿Olvidaste tu contraseña?</label>
+        <label class="flex forgot-pass">¿Olvidaste tu contraseña?</label>
         <input type="submit" id="ingresar" value="INGRESA" />
         <label class="flex registro">¿No tienes una cuenta?&nbsp<span class="bold">Registrate</span></label>
-        <p id="clave-incorrecta"></p>
+        <p id="error-pass"></p>
       </form>
     </section>
     <section id="screen-home" class="flex-home hide">
@@ -111,8 +115,10 @@
           <option value="order-des">Frecuencia de aparición DES</option>
         </select>
       </form>
-      <p class="status trapped" id="count-trapped"></p><br>
-      <p class="status no-trapped" id="count-no-trapped"></p>
+      <div id="container-trap">
+        <p class="status trapped" id="count-trapped"></p>
+        <p class="status no-trapped" id="count-no-trapped"></p>
+      </div>
       <div id="container-cards">
         <p id="count-filter"></p>
         <div id="pok-filtrados"></div>
@@ -132,7 +138,7 @@
         <div id="table"></div>
       </div>
     </section>
-    
+
   </main>
   <footer id="footer" class="hide">
     <p>Copyright &#169;2019 ElizabethTR - AlbaYI. All Rights Reserved.</p>

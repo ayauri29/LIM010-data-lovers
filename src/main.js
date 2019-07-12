@@ -5,9 +5,10 @@ const screenLogin = document.getElementById('screen-login');
 const screenHome = document.getElementById('screen-home');
 const screenPokemon = document.getElementById('screen-pokemon');
 const screenEclosionEgg = document.getElementById('screen-eclosion-egg');
-const claveIncorrecta = document.getElementById('clave-incorrecta');
+const errorPass = document.getElementById('error-pass');
 const header = document.getElementById('header');
 const footer = document.getElementById('footer');
+const searchByName = document.getElementById('search-by-name');
 const data = POKEMON.pokemon;
 
 let cont = 1;
@@ -22,14 +23,14 @@ document.getElementById('enter').addEventListener('submit', (enter) => {
     screenLogin.classList.add('hide');
     home.classList.add('active');
   } else if (cont > 2) {
-    claveIncorrecta.innerHTML = ' Ha intentado demasiadas veces.';
+    errorPass.innerHTML = ' Ha intentado demasiadas veces.';
     usuario.value = '';
     password.value = '';
     ingresar.disabled = true;
     usuario.disabled = true;
     password.disabled = true;
   } else {
-    claveIncorrecta.innerHTML = ' ERROR! Introduzca una clave válida.';
+    errorPass.innerHTML = ' ERROR! Introduzca una clave válida.';
     usuario.value = '';
     password.value = '';
     usuario.focus();
@@ -48,14 +49,17 @@ home.addEventListener('click', () => {
   document.getElementById('filter').classList.add('hide');
   eggsKm.classList.remove('active');
   document.getElementById('table').innerHTML = '';
+  searchByName.classList.add('hide');
 });
 
 let text = '';
 let arrayType = [];
 
 filter.addEventListener('change', () => {
+  document.getElementById('container-trap').classList.remove('hide');
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pokemones').innerHTML = '';
+  document.getElementById('search').value = '';
   const x = document.getElementById('filter').value;
   arrayType = searchType(data, x);
   const count = divideAtrapped(arrayType);
@@ -71,12 +75,14 @@ let texto = '';
 let arrayDebil = [];
 
 weakness.addEventListener('change', () => {
+  document.getElementById('container-trap').classList.remove('hide');
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pokemones').innerHTML = '';
+  document.getElementById('search').value = '';
   const x = document.getElementById('filter').value;
   const debil = document.getElementById('weakness').value;
   let count = {};
-  
+
   if (x === '0') {
     arrayDebil = searchOnlyWeakness(data, debil);
     count = divideAtrapped(arrayDebil);
@@ -88,8 +94,9 @@ weakness.addEventListener('change', () => {
   } else {
     arrayDebil = searchWeakness(data, x, debil);
     if (arrayDebil.length === 0) {
-      document.getElementById('pok-filtrados').innerHTML = '<img src="https://vignette.wikia.nocookie.net/pokpiruleta/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140624162904&path-prefix=es"><p>No se encontraron resultados.</p>';
+      document.getElementById('pok-filtrados').innerHTML = '<img src="https://vignette.wikia.nocookie.net/pokpiruleta/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140624162904&path-prefix=es"><p class="white">No se encontraron resultados.</p>';
       document.getElementById('count-trapped').innerHTML = '';
+      document.getElementById('container-trap').classList.add('hide');
       document.getElementById('count-no-trapped').innerHTML = '';
     } else {
       count = divideAtrapped(arrayDebil);
@@ -104,7 +111,9 @@ weakness.addEventListener('change', () => {
 
 let ordered = [];
 
-order.addEventListener('change', ()=>{
+order.addEventListener('change', () => {
+  document.getElementById('container-trap').classList.remove('hide');
+  document.getElementById('search').value = '';
   const tipo = document.getElementById('filter').value;
   const debil = document.getElementById('weakness').value;
   const order = document.getElementById('order').value;
@@ -131,9 +140,11 @@ order.addEventListener('change', ()=>{
 let list = '';
 const seePokemons = document.getElementById('see-pokemons');
 seePokemons.addEventListener('click', () => {
+  document.getElementById('container-trap').classList.remove('hide');
   screenHome.classList.add('hide');
   screenPokemon.classList.remove('hide');
   screenEclosionEgg.classList.add('hide');
+  searchByName.classList.remove('hide');
   document.getElementById('filter').classList.remove('hide');
   home.classList.remove('active');
   seePokemons.classList.add('active');
@@ -141,7 +152,8 @@ seePokemons.addEventListener('click', () => {
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pok-filtrados').innerHTML = '';
   document.getElementById('table').innerHTML = '';
-  
+  document.getElementById('search').value = '';
+
   document.getElementById('order').selectedIndex = 0;
   document.getElementById('weakness').selectedIndex = 0;
   document.getElementById('filter').selectedIndex = 0;
@@ -150,8 +162,30 @@ seePokemons.addEventListener('click', () => {
   document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
 
   list = showImg(sortId(data));
-  
+
   document.getElementById('pokemones').innerHTML = list;
+});
+
+const searchButton = document.getElementById('search-button');
+searchButton.addEventListener('click', () => {
+  document.getElementById('order').selectedIndex = 0;
+  document.getElementById('weakness').selectedIndex = 0;
+  document.getElementById('filter').selectedIndex = 0;
+  document.getElementById('count-egg').innerHTML = '';
+  document.getElementById('pokemones').innerHTML = '';
+  document.getElementById('pok-filtrados').innerHTML = '';
+  document.getElementById('count-trapped').innerHTML = '';
+  document.getElementById('count-no-trapped').innerHTML = '';
+  document.getElementById('container-trap').classList.add('hide');
+  const searchText = document.getElementById('search').value;
+  let arrayName = searchName(data, searchText);
+  let text = '';
+  if (arrayName.length !== 0) {
+    text = showImg(arrayName);
+    document.getElementById('pok-filtrados').innerHTML = text;
+  } else {
+    document.getElementById('pok-filtrados').innerHTML = '<p class="white">No se encontraron resultados.</p>';
+  }
 });
 
 google.load('visualization', '1.0', { 'packages': ['corechart'] });
@@ -163,6 +197,7 @@ eggsKm.addEventListener('click', () => {
   screenHome.classList.add('hide');
   screenPokemon.classList.add('hide');
   screenEclosionEgg.classList.remove('hide');
+  searchByName.classList.add('hide');
   document.getElementById('filter').classList.add('hide');
   home.classList.remove('active');
   seePokemons.classList.remove('active');
@@ -179,21 +214,21 @@ eggsKm.addEventListener('click', () => {
 
 const eggs = searchEggs(data);
 const egg2 = document.getElementById('2km');
-egg2.addEventListener('click', ()=>{
+egg2.addEventListener('click', () => {
   graphicPie();
   buildGraphic(0);
 });
 
 const egg5 = document.getElementById('5km');
-egg5.addEventListener('click', ()=>{
+egg5.addEventListener('click', () => {
   graphicPie();
   buildGraphic(1);
 });
 
 const egg10 = document.getElementById('10km');
-egg10.addEventListener('click', ()=>{
+egg10.addEventListener('click', () => {
   graphicPie();
-  buildGraphic(2);  
+  buildGraphic(2);
 });
 
 const buildGraphic = (index) => {
@@ -226,7 +261,7 @@ const graphicPie = () => {
       ['Huevos de 2km', eggs[0].length],
       ['Huevos de 5km', eggs[1].length],
       ['Huevos de 10km', eggs[2].length],
-      ['No tiene huevos', eggs[3].length]
+      ['No tiene huevos', eggs[3].length + 1]
 
     ]
   );
@@ -238,12 +273,13 @@ const graphicPie = () => {
   };
   const graphic = new google.visualization.PieChart(document.getElementById('charts'));
   graphic.draw(dataDr, opc);
+  const eggs3 = eggs[3].length + 1;
   document.getElementById('count-egg').innerHTML = 'Huevos de 2km: ' + eggs[0].length + '<br>' + 'Huevos de 5km: ' + eggs[1].length + '<br>' +
-    ' Huevos de 10km: ' + eggs[2].length + '<br>' + ' No tienen huevos: ' + eggs[3].length;
+    ' Huevos de 10km: ' + eggs[2].length + '<br>' + ' No tienen huevos: ' + eggs3;
 };
 
 const up = document.querySelector('#up');
-window.addEventListener('scroll', () =>{
+window.addEventListener('scroll', () => {
   if (window.pageYOffset > 200) {
     up.classList.remove('hide');
   } else {
@@ -251,6 +287,6 @@ window.addEventListener('scroll', () =>{
   }
 });
 
-up.addEventListener('click', () =>{
+up.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });

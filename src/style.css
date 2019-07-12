@@ -6,8 +6,6 @@
     font-family: 'Open Sans', sans-serif;
 }
 body{
-    /*background: #F7F7F7;*/
-    /*background: #70eca996;*/
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -21,8 +19,6 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    /* rgba(25, 209, 231, 0.5),
-      rgba(243, 17, 224, 0.5)*/
 }
 main{
     display:flex;
@@ -45,7 +41,6 @@ main{
     display: none;
 }
 #logo-pok{
-    /*display: none;*/
     width: auto;
 }
 .bold{
@@ -55,31 +50,42 @@ header{
     background: #0d47a1;
     display: flex;
     justify-content:space-around;
+    flex-direction: column-reverse;
     align-items: center;
     padding: 10px 20px;
 }
-/*.contenido{
-    display:flex;
-    font-size: 13px;
-    border-style: none;
-    background: none;
+#search-by-name{
     margin: 5px;
-    padding: 5px;
+}
+.search {
+    width: 150px;
+    border: transparent;
+    border-bottom: solid 1px white;
+    padding: 5px 0px 5px 10px;
+    background-color: #3f51b500;
+    color: white;
+}
+.searchbut{
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: #ff0000;
+    color: white;
     border-radius: 5px;
-}*/
+}
+::placeholder{
+    color: #bbb5b5;
+}
 ul li a:hover{
     background-color: red;
-    /*color: #000; */
 }
 .active{
     background-color: red;
-    /*color: #000;*/
 }
 .nav{
     color: #fff;
     margin-right: 3px;
     font-size: 20px;
-    /*vertical-align: middle;*/
 } 
 ul{   
     display: flex;
@@ -101,20 +107,14 @@ ul li a{
     padding: 5px;
     border-radius: 5px;
 }
-/*h1{ 
-    display:none;
-}*/
 h2{ 
     text-align: center;
     font-size: 16px;
-    /*color: #063277;*/
     color: white;
-    /*margin: 0 auto;*/
 }
 .icon-pok{
     width: 20px;
     height: 20px;
-    /*vertical-align: middle;*/
 }
 .label{
     align-self: flex-start;
@@ -124,7 +124,7 @@ h2{
     height: 37px;
     color: #FFFFFF; 
 }
-.olvidaste-contrasena{
+.forgot-pass{
     align-self: flex-end;
     font-size: 14px;
     font-weight: bold;
@@ -176,8 +176,7 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: center;   
-    padding: 0px 20px; 
-    
+    padding: 0px 20px;  
 }
 .flex{
     display:flex;
@@ -196,12 +195,11 @@ h2{
 }
 #about-us p{
     text-align: justify;
-    /*color: #363a39;*/
     background-color: rgba(0, 0, 0, 0.3);
-        padding: 10px;
-        color: white;
-        width: 85%;
-        margin: 20px auto;
+    padding: 10px;
+    color: white;
+    width: 85%;
+    margin: 20px auto;
 }
 #gif-pokemon{
     width: 50%;
@@ -218,69 +216,65 @@ form{
     color: #131b6b;
     padding: 8px 16px;
     border: 1px solid transparent;
-    margin: 8px 0;
+    margin: 0px 0px 8px 0px;
 }
 option[value=""][disabled] {
     display: none;
 }
-
 footer {
     margin: 0;
     padding: 7px 20px;
     background: #000;
     text-align: center;
-  }
-  footer p:nth-child(1){
+}
+footer p:nth-child(1){
   
     color: white;
     font-size: 11px;
     margin: 0px;
-  }
-  footer p:nth-child(2){
+}
+footer p:nth-child(2){
     font-size: 20px;
     color: white;
     margin: 0;
-  }
-  .filter{
+}
+.filter{
     display: flex;
     align-items: flex-start;
     justify-content: center;
     margin: 10px;
 }
-
 .hide{
     display:none;
 }
-
 /* Estilo de cards*/
 .flex-poke{
     text-align: center;
 }
- .img-pok{
+.img-pok{
     padding: 8px;
- }
- .num{
+}
+.num{
     text-align: left;
     font-weight: bold;
     margin: 5px 20px;
     color: #FF9800;
     border-bottom: 2px solid #FF9800;
- }
- .nom{
+}
+.nom{
     color: #f8f8f8;
     font-weight: bold;
     padding: 5px;
     margin: 5px 20px;
     border-radius: 5px;
- }
- .orange{
+}
+.orange{
     background: #FF9800;
- }
- .black{
+}
+.black{
     background: black;
- }
- 
- .flip-card {
+}
+.flip-card {
     height: 300px;
     perspective: 1000px;
     border: 2px solid rgb(242, 243, 247);
@@ -289,7 +283,7 @@ footer {
     padding: 5px;
     border-radius: 5px;
     width: 220px;
-  }
+}
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -298,24 +292,23 @@ footer {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-  .flip-card:hover .flip-card-inner {
+}
+.flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
-  }
-  .flip-card-front, .flip-card-back, .flip-card-front-no{
+}
+.flip-card-front, .flip-card-back, .flip-card-front-no{
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-  }
-  .flip-card-front {
+}
+.flip-card-front {
     background: #F7F7F7;
-      } 
- 
-  .flip-card-back {
+} 
+.flip-card-back {
     background-color: #FFC107;
     transform: rotateY(180deg);
-  }
+}
 .data-type{
     color: black;
     font-weight: bold;
@@ -338,12 +331,12 @@ footer {
 .white{
     color: white;
 }
-
 .status{
     display: inline-block;
     font-weight: bold; 
     padding: 5px;
     border-radius: 2px;
+    margin: 5px;
 }
 .trapped{
     background: #f8f8f8;
@@ -369,7 +362,7 @@ footer {
     padding: 15px;
     border-radius: 4px;
 }
-  #up:hover {
+#up:hover {
     background-color: #0d47a1;
 }
 .buttonkm{
@@ -380,41 +373,33 @@ footer {
     margin: 10px auto;
     display: inherit;
 }
-
 .km2{
     color: white;
     background-color: #3366cc;
 }
-
 .km5{
     color: white;
     background-color: #dc3912;
 }
-
 .km10{
     color: white;
     background-color: #ff9900;
 }
-
 .buttons{
     text-align: center;
 }
-
 .graphic-pie{
     display: none;
 }
-
 h3{
     color: gold;
     font-size: 25px;
     text-align: center;
 }
-
 /* CSS TABLE */
 .width{
     width: 65%;
 }
-
 
 @media screen and (min-width:764px){
  
@@ -428,14 +413,13 @@ h3{
         align-items: center;
     }
     #logo-pok{
-        /*display: block;*/
         width: 25%;
         margin: 0 5px;
     }
     #user, #pass, #ingresar{
         width: 335px;
     }
-    .label, .olvidaste-contrasena, #clave-incorrecta, .registro{
+    .label, .forgot-pass, #error-pass, .registro{
         color: #000000; 
     }
     .flex-form{
@@ -446,31 +430,24 @@ h3{
     }
     .flex-home{
         flex-direction: row;
-        /*margin: 20px;*/
         justify-content: space-around;
     }
-    /*footer{
-        font-size: 14px;
-    }*/
     form{
         display: block;
     }
-
     footer{
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
         justify-content: space-between;
-      }
-      footer p:nth-child(1){
+    }
+    footer p:nth-child(1){
         font-size: 13px;   
-      }
-      footer p:nth-child(2){  
+    }
+    footer p:nth-child(2){  
         font-size: 25px;
         width: auto;
-      }
-
-
+    }
     h1, h2{ 
         font-size: 24px;
         color: white;
@@ -482,11 +459,9 @@ h3{
     }
     header{
         justify-content:space-between;
+        flex-direction: initial;
         font-size: 15px;
     }
-    /*ul li a{
-        font-size: 15px;
-    }*/
     #gif-pokemon{
         width: auto;
         height: auto;
@@ -499,17 +474,13 @@ h3{
     .buttonkm{
         display: inline;
         margin: 10px 5px;
-        /*margin: 20px;*/
-    }
-    
+    }  
     .graphic-pie{
         display: flex;
         flex-direction: column;
         text-align: -webkit-center;
         margin: 0 auto;
-        /*width: 40%;*/
     }
-    
     h3{
         color: gold;
         font-size: 23px;
@@ -521,7 +492,6 @@ h3{
         text-align: center;
         font-weight: bold;
         padding: 5px;
-        /*background: #F8F8F8;*/
         color: #FFFFFF;
         border-bottom: 5px solid gold;
         width: 50%;
