@@ -20,14 +20,14 @@ const showImg = (array) => {
     if (array[i].multipliers === null) {
       let card = `
       <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front-no">
-            <p class="num">` + 'N.º ' + array[i].num + `</p>
-            <p class="data-value white"><span class="data-type">Estado:</span>` + 'NO ATRAPADO' + `</p>
-            <p class="data-value white"><span class="data-type">Frec. aparición:</span>` + array[i].spawn_chance + '%' + `</p>
-            <img class="img-pok" src="` + array[i].img + `"/>
-            <p class="nom orange">` + array[i].name + `</p>
-            <p class="data-value white"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
+      <div class="flip-card-inner">
+        <div class="flip-card-front-no">
+              <p class="num">` + 'N.º ' + array[i].num + `</p>
+              <p class="data-value white"><span class="data-type">Estado:</span>` + 'NO ATRAPADO' + `</p>
+              <p class="data-value white"><span class="data-type">Frec. aparición:</span>` + array[i].spawn_chance + '%' + `</p>
+              <img class="img-pok" src="` + array[i].img + `"/>
+              <p class="nom orange">` + array[i].name + `</p>
+              <p class="data-value white"><span class="data-type">Tipo:</span>` + array[i].type.join(' - ') + `</p>
           </div>
           <div class="flip-card-back">
             <p class="nom black">` + array[i].name + `</p>          

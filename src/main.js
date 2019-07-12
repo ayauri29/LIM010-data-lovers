@@ -95,8 +95,8 @@ weakness.addEventListener('change', () => {
     arrayDebil = searchWeakness(data, x, debil);
     if (arrayDebil.length === 0) {
       document.getElementById('pok-filtrados').innerHTML = '<img src="https://vignette.wikia.nocookie.net/pokpiruleta/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140624162904&path-prefix=es"><p class="white">No se encontraron resultados.</p>';
-      document.getElementById('container-trap').classList.add('hide');
       document.getElementById('count-trapped').innerHTML = '';
+      document.getElementById('container-trap').classList.add('hide');
       document.getElementById('count-no-trapped').innerHTML = '';
     } else {
       count = divideAtrapped(arrayDebil);
