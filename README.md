@@ -32,17 +32,8 @@ Esta fue la primera idea de como podría visualizarse nuestra página, es un pro
 ### Prototipo en FIGMA
 En éste [link](https://www.figma.com/file/uuZwmTDPuHUKXG7LMSPbwD/Data-lovers-Pok%C3%A9mon?node-id=1%3A2) se puede visualizar el prototipo de alta fidelidad final desarrollado (mobile y desktop) en Figma. 
 
-**Prototipo exportado de Figma - Vista desktop:**
-![Desktop_ Screen-login](https://user-images.githubusercontent.com/51327685/61099616-8c3d8580-a428-11e9-8eec-4da0277b0f47.png)
-
-![Desktop_ Screen-home](https://user-images.githubusercontent.com/51327685/61099653-a6776380-a428-11e9-97a3-a9f8adf885dd.png)
-
-![Desktop_ Screen-pokemon](https://user-images.githubusercontent.com/51327685/61099663-b1ca8f00-a428-11e9-948d-391b5db004d0.png)
-
-![Desktop_ Screen-egg](https://user-images.githubusercontent.com/51327685/61099673-be4ee780-a428-11e9-8d1e-6249b7c6e338.png)
-
-**Prototipo exportado de Figma - Vista mobile:**
-![Mobile_ Screen-login](https://user-images.githubusercontent.com/51327685/61099679-cc046d00-a428-11e9-85af-5e47de4b52eb.png) ![Mobile_ Screen-home](https://user-images.githubusercontent.com/51327685/61099690-d7f02f00-a428-11e9-93dd-7b0e24d9c082.png) ![Mobile_ Screen-pokemon](https://user-images.githubusercontent.com/51327685/61099711-e9d1d200-a428-11e9-861d-ed0fd8e1c186.png) ![Mobile_ Screen-egg](https://user-images.githubusercontent.com/51327685/61099718-f35b3a00-a428-11e9-8a88-990f81865905.png)
+**Prototipo exportado de Figma - Vista desktop y mobile:**
+![image](https://user-images.githubusercontent.com/51327685/61134264-e0765300-a484-11e9-9a98-82e251bcde72.png)
 
 ### Resumen del Feedback
 Al termino del segundo sprint recibimos el siguiente feedback:
