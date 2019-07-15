@@ -1,8 +1,8 @@
 # POKEMON GO
-
+<p>
  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1280px-Pok%C3%A9mon_GO_logo.svg.png" width="131px";
-    height="80.2px">
-
+    height="80.2px" text-align ="center">
+</p>
 ## Índice
 
 - [Índice](#índice)
