@@ -4,7 +4,6 @@
     "jest": true
   },
   "globals": {
-    "expect": false
+    "assert": false
   }
- 
 }
