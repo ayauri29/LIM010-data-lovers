@@ -1,6 +1,6 @@
 # POKEMON GO
 <p text-align ='center'>
- <img src='src/img/PokémonGO.png'>
+ <img src='../img/PokémonGO.png'>
 </p>
 
 ## Índice
