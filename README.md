@@ -1,6 +1,6 @@
 # POKEMON GO
-<p text-align ='center'>
- <img src='../img/PokémonGO.png'>
+<p text-align ="center">
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1280px-Pok%C3%A9mon_GO_logo.svg.png">
 </p>
 
 ## Índice
