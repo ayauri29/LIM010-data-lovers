@@ -146,7 +146,7 @@ h2{
     height: 45px;
     padding: 5px;
     border-radius: 2px;
-    border-style: none;
+    border: 1px solid #dcccb3;
     margin-bottom: 12px;
 }
 #ingresar{

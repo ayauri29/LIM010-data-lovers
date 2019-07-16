@@ -1,7 +1,7 @@
 # POKEMON GO
 
 <p text-align ="center">
- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1280px-Pok%C3%A9mon_GO_logo.svg.png" width="150px" height="100px">
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1280px-Pok%C3%A9mon_GO_logo.svg.png" width="180px" height="100px">
 </p>
 
 ## Índice
@@ -10,7 +10,7 @@
 - [Resumen](#resumen)
 - [Investigación UX](#investigacion-ux)
     - [Usuarios y objetivos en relación con el producto](#usuarios-y-objetivos-en-relacion-con-el-producto)
-    - [¿Cómo soluciona las necesidades del usuario?](#¿-como-soluciona-las-necesidades-del-usuario-?)
+    - [¿Cómo soluciona las necesidades del usuario?](#¿como-soluciona-las-necesidades-del-usuario?)
     - [Historias de usuario](#historias-de-usuario)
     - [Prototipo en papel](#prototipo-en-papel)
     - [Prototipo en FIGMA](#prototipo-en-FIGMA)
@@ -60,7 +60,12 @@ Esta fue la primera idea de como podría visualizarse nuestra página, es un pro
 En éste [link](https://www.figma.com/file/uuZwmTDPuHUKXG7LMSPbwD/Data-lovers-Pok%C3%A9mon?node-id=1%3A2) se puede visualizar el prototipo de alta fidelidad final desarrollado (mobile y desktop) en Figma. 
 
 **Prototipo exportado de Figma - Vista desktop y mobile:**
+
 ![image](https://user-images.githubusercontent.com/51327685/61134264-e0765300-a484-11e9-9a98-82e251bcde72.png)
+
+**Prototipo Figma exportado a Zeplin:**
+
+![zeplin](https://user-images.githubusercontent.com/51327685/61296164-3a398e80-a79f-11e9-85e8-dfe7a1a989aa.PNG)
 
 ### Resumen del Feedback
 En el primer feedback sobre el prototipo en papel no hubo cambios, quiere decir que estuvo clara la interacción.
