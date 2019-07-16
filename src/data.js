@@ -7,7 +7,7 @@ const example = () => {
   return 'example';
 };
 const searchName = (data, name) => {
-  return data.filter(dataRow => (dataRow.name.toLowerCase().indexOf(name.toLowerCase()) > -1) || (dataRow.name.toUpperCase().indexOf(name.toUpperCase()) > -1) || (dataRow.name.indexOf(name) > -1));
+  return data.filter(dataRow => (dataRow.name.toLowerCase().indexOf(name.toLowerCase()) > -1));
 };
 const searchType = (data, tipo) => {
   let array = [];
