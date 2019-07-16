@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../img/pokemon.png" />
-
 </head>
 
 <body class="fondo1">
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="https://www.google.com/jsapi"></script>
   <header id="header" class="hide">
     <div id="logo-header">
       <img id="logo-pok" alt="pokeball-go" src="../img/ball.png" />
@@ -25,15 +24,14 @@
       <ul>
         <li><a href="#" id="home"><i id="i-home" class="nav fa fa-home" aria-hidden="true"></i>HOME</a></li>
         <li><a href="#" id="see-pokemons"><img id="pokebola" class="icon-pok" alt="icono-pokebola"
-              src="../img/pokeball (1).png" />POKEMON</a></li>
+              src="../img/pokeball.png" />POKEMON</a></li>
         <li><a href="#" id="eggs-km"><img id="egg-pok" class="icon-pok" alt="icono-huevo"
               src="../img/huevo.png" />EGG</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="screen-login" class="flex">
-      <form id="enter" class="flex-form">
+      <form id="screen-login" class="flex-form">
         <img id="logo" alt="Logo de PokemonGO"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1280px-Pok%C3%A9mon_GO_logo.svg.png" />
         <label class="flex label">Usuario</label>
@@ -42,10 +40,9 @@
         <input type="password" id="pass" required />
         <label class="flex forgot-pass">¿Olvidaste tu contraseña?</label>
         <input type="submit" id="ingresar" value="INGRESA" />
-        <label class="flex registro">¿No tienes una cuenta?&nbsp<span class="bold">Registrate</span></label>
+        <label class="flex registro">¿No tienes una cuenta?&nbsp;<span class="bold">Registrate</span></label>
         <p id="error-pass"></p>
-      </form>   
-    </section>
+      </form>
     <section id="screen-home" class="flex-home hide">
       <div id="about-us">
         <h2>Pokémon GO - Puntos fuertes y débiles de todos los tipos de Pokémon</h2>
@@ -61,9 +58,8 @@
             id="appstore" alt="App store" src="../img/appstore-badge.png" /></a>
       </div>
       <img id="gif-pokemon" alt="gif de pikachu" src="https://media.giphy.com/media/aNp3tRXvsxRS0/giphy.gif" />
-
     </section>
-    <section id="screen-pokemon" class="flex-poke hide">
+    <div id="screen-pokemon" class="flex-poke hide">
       <button id="up" class="hide"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></button>
       <form>
         <label class="white bold">Tipo:</label>
@@ -120,11 +116,10 @@
         <p class="status no-trapped" id="count-no-trapped"></p>
       </div>
       <div id="container-cards">
-        <p id="count-filter"></p>
         <div id="pok-filtrados"></div>
         <div id="pokemones"></div>
       </div>
-    </section>
+    </div>
     <section id="screen-eclosion-egg" class="filter hide">
       <div class="graphic-pie">
         <h3>Gráfica de porcentaje correspondiente al tipo de huevo</h3>
