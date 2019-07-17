@@ -9,7 +9,6 @@ const searchType = (data, tipo) => {
   return array;
 };
 
-
 const divideAtrapped = (array) => {
   let atrapado = 0;
   let noAtrapado = 0;
