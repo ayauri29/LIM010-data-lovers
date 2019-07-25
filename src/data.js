@@ -1,8 +1,10 @@
 // agregamos las funciones a nuestro objeto global window
 
 const searchName = (data, name) => {
-  return data.filter(dataRow => (dataRow.name.toLowerCase().indexOf(name.toLowerCase()) > -1));
+  const results = data.filter(dataRow => dataRow.name.toLowerCase().startsWith(name));
+  return results;
 };
+
 const searchType = (data, tipo) => {
   let array = [];
   array = data.filter(datum => datum.type[0] === tipo || datum.type[1] === tipo);
@@ -25,20 +27,6 @@ const divideAtrapped = (array) => {
   };
 };
 
-const searchWeakness = (data, tipo, weakness) => {
-  let array = [];
-  for (let i = 0; i < data.length; i++) {
-    for (let j = 0; j < data[i].weaknesses.length; j++) {
-      for (let x = 0; x < data[i].type.length; x++) {
-        if (data[i].weaknesses[j] === weakness && data[i].type[x] === tipo) {
-          array.push(data[i]);
-        }
-      }
-    }
-  }
-  return array;
-};
-
 const searchOnlyWeakness = (data, weakness) => {
   let array = [];
   for (let i = 0; i < data.length; i++) {
@@ -51,17 +39,17 @@ const searchOnlyWeakness = (data, weakness) => {
   return array;
 };
 
-const searchEggs = (data) => {
-  let count2 = data.filter(pok => (pok.egg === '2 km'));
-  let count5 = data.filter(pok => (pok.egg === '5 km'));
-  let count10 = data.filter(pok => (pok.egg === '10 km'));
-  let ncount = data.filter(pok => (pok.egg === 'Not in Eggs'));
+const searchWeakness = (data, tipo, weakness) => {
+  const array = searchType(data, tipo);
+  return searchOnlyWeakness(array, weakness);
+};
 
+const searchEggs = (dataPok) => {
   return [
-    count2,
-    count5,
-    count10,
-    ncount,
+    dataPok.filter(pok => (pok.egg === '2 km')),
+    dataPok.filter(pok => (pok.egg === '5 km')),
+    dataPok.filter(pok => (pok.egg === '10 km')),
+    dataPok.filter(pok => (pok.egg === 'Not in Eggs'))
   ];
 };
 
@@ -88,7 +76,7 @@ const orderData = (array, condicion) => {
 const pushTable = (array, index) => {
   const tabla = [];
   for (let i = 0; i < array[index].length; i++) {
-    tabla.push([array[index][i].name, '<img class="width" src="' + array[index][i].img + '">', (array[index][i].spawn_chance)]);
+    tabla.push([array[index][i].name, `<img class="width" src=${array[index][i].img}>`, (array[index][i].spawn_chance)]);
   }
   return tabla;
 };

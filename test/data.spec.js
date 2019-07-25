@@ -166,10 +166,6 @@ describe('searchName', () => {
   it('debería buscar los pokemones que empiecen con bul', () => {
     expect(searchName(dataPokemon, 'bul')[0].name).toEqual('Bulbasaur');
   });
-
-  it('debería buscar los pokemones que empiecen con BUL', () => {
-    expect(searchName(dataPokemon, 'BUL')[0].name).toEqual('Bulbasaur');
-  });
 });
 
 describe('searchOnlyWeakness', () => {
