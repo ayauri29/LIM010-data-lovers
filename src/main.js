@@ -9,6 +9,8 @@ const errorPass = document.getElementById('error-pass');
 const header = document.getElementById('header');
 const footer = document.getElementById('footer');
 const searchByName = document.getElementById('search-by-name');
+const weaknessSelect = document.getElementById('weakness');
+const typeSelect = document.getElementById('filter');
 let data = '';
 let eggs = '';
 
@@ -19,50 +21,25 @@ fetch('https://raw.githubusercontent.com/Laboratoria/LIM010-data-lovers/master/s
   .then(dataPoke => {
     data = dataPoke.pokemon;
     eggs = searchEggs(data);
-    fillTypeSelect();
-    fillWeaknessSelect();
+    typeSelect.innerHTML = fillSelect(data.map(dat=>dat.type));
+    weaknessSelect.innerHTML = fillSelect(data.map(dat=>dat.weaknesses));
   })
   .catch((error) => { 
     console.log('Error');
   });
 
-const typeSelect = document.getElementById('filter');
-const fillTypeSelect = () =>{
-  let types = [];
-  for (let i = 0; i < data.length; i++) {
-    types.push(data[i].type); 
-  };
-
+const fillSelect = (types) =>{
   types = types.toString().split(',');
   types = Array.from(new Set(types));
 
-  let template = `<option value="0" selected disabled>Seleccionar un tipo</option>
+  let template = `<option value="0" selected disabled>Selecciona uno</option>
                   <option value="1">Ver todos</option>`;
 
   for (let j = 0; j < types.length; j++) {
     template += `<option value=${types[j]}>${types[j]}</option>`;
   }
 
-  typeSelect.innerHTML = template;
-};
-
-const weaknessSelect = document.getElementById('weakness');
-const fillWeaknessSelect = () =>{
-  let weakness = [];
-  for (let i = 0; i < data.length; i++) {
-    weakness.push(data[i].weaknesses); 
-  };
-
-  weakness = weakness.toString().split(',');
-  weakness = Array.from(new Set(weakness));
-
-  let template = '<option value="0" selected disabled>Seleccionar una debilidad</option>';
-
-  for (let j = 0; j < weakness.length; j++) {
-    template += `<option value=${weakness[j]}>${weakness[j]}</option>`;
-  }
-
-  weaknessSelect.innerHTML = template;
+  return template;
 };
 
 let cont = 1;
@@ -108,33 +85,23 @@ home.addEventListener('click', () => {
 
 let text = '';
 let arrayType = [];
-
 filter.addEventListener('change', () => {
   document.getElementById('container-trap').classList.remove('hide');
   document.getElementById('count-egg').innerHTML = '';
   document.getElementById('pokemones').innerHTML = '';
   document.getElementById('search').value = '';
   const x = document.getElementById('filter').value;
-  let count = {};
-  console.log(x);
-  if (x === '1') {
-    count = divideAtrapped(data);
-    text = showImg(sortId(data));
+  const order = document.getElementById('order').value;
+  const debil = document.getElementById('weakness').value;
+  const filtered = orderFiltered(filtrar(x, debil), order);
+  if (filtered.length !== 0) {
+    document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + divideAtrapped(filtered).atrapado;
+    document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + divideAtrapped(filtered).noAtrapado;
+    document.getElementById('pok-filtrados').innerHTML = showImg(filtered);
   } else {
-    arrayType = searchType(data, x);
-    count = divideAtrapped(arrayType);
-    text = showImg(arrayType);
-  }
- 
-  document.getElementById('weakness').selectedIndex = 0;
-  document.getElementById('order').selectedIndex = 0;
-  document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + count.atrapado;
-  document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
-  document.getElementById('pok-filtrados').innerHTML = text;
+    withoutResults();
+  }  
 });
-
-let texto = '';
-let arrayDebil = [];
 
 weakness.addEventListener('change', () => {
   document.getElementById('container-trap').classList.remove('hide');
@@ -143,61 +110,60 @@ weakness.addEventListener('change', () => {
   document.getElementById('search').value = '';
   const x = document.getElementById('filter').value;
   const debil = document.getElementById('weakness').value;
-  let count = {};
-
-  if (x === '0' || x === '1') {
-    arrayDebil = searchOnlyWeakness(data, debil);
-    count = divideAtrapped(arrayDebil);
-    texto = showImg(arrayDebil);
-    document.getElementById('order').selectedIndex = 0;
-    document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + count.atrapado;
-    document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
-    document.getElementById('pok-filtrados').innerHTML = texto;
-    document.getElementById('filter').selectedIndex = 0;
+  const order = document.getElementById('order').value; 
+  const filtered = orderFiltered(filtrar(x, debil), order);
+  if (filtered.length !== 0) {
+    document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + divideAtrapped(filtered).atrapado;
+    document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + divideAtrapped(filtered).noAtrapado;
+    document.getElementById('pok-filtrados').innerHTML = showImg(filtered);
   } else {
-    arrayDebil = searchWeakness(data, x, debil);
-    if (arrayDebil.length === 0) {
-      document.getElementById('pok-filtrados').innerHTML = '<img src="https://vignette.wikia.nocookie.net/pokpiruleta/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140624162904&path-prefix=es"><p class="white">No se encontraron resultados.</p>';
-      document.getElementById('count-trapped').innerHTML = '';
-      document.getElementById('container-trap').classList.add('hide');
-      document.getElementById('count-no-trapped').innerHTML = '';
-    } else {
-      count = divideAtrapped(arrayDebil);
-      texto = showImg(arrayDebil);
-      document.getElementById('order').selectedIndex = 0;
-      document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + count.atrapado;
-      document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + count.noAtrapado;
-      document.getElementById('pok-filtrados').innerHTML = texto;
-    }
+    withoutResults();
   }
 });
 
-let ordered = [];
+const withoutResults = () => {
+  document.getElementById('pok-filtrados').innerHTML = '<img src="https://vignette.wikia.nocookie.net/pokpiruleta/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140624162904&path-prefix=es"><p class="white">No se encontraron resultados.</p>';
+  document.getElementById('count-trapped').innerHTML = '';
+  document.getElementById('container-trap').classList.add('hide');
+  document.getElementById('count-no-trapped').innerHTML = '';
+};
+
+const filtrar = (type, debil) =>{
+  let filtered = [];
+  if (type === '1' && debil === '0' || type === '1' && debil === '1' ) {
+    return data;
+  } else if (debil === '0' && type !== '0' || debil === '1' && type !== '0') {
+    filtered = searchType(data, type);
+  } else if (type === '0' && debil !== '0' || type === '1' && debil !== '0') {
+    filtered = searchOnlyWeakness(data, debil);
+  } else if (type !== '0' && debil !== '0') {
+    filtered = searchOnlyWeakness(searchType(data, type), debil);
+  } 
+  return filtered;
+};
+
+const orderFiltered = (array, order) => {
+  if (order === '1') {
+    filtered = sortId(array);
+  } else if (order !== '0' && order !== 1) {
+    filtered = orderData(array, order);
+  } else {
+    return array;
+  }
+  return filtered;
+};
 
 order.addEventListener('change', () => {
   document.getElementById('container-trap').classList.remove('hide');
   document.getElementById('search').value = '';
-  const tipo = document.getElementById('filter').value;
-  const debil = document.getElementById('weakness').value;
+  const x = document.getElementById('filter').value;
   const order = document.getElementById('order').value;
-  let text = '';
-  if (debil === '0' && tipo === '0' || debil === '0' && tipo === '1') {
-    ordered = orderData(data, order);
-    text = showImg(ordered);
-  } else if (debil === '0') {
-    arrayType = searchType(data, tipo);
-    ordered = orderData(arrayType, order);
-    text = showImg(ordered);
-  } else if (tipo === '0') {
-    arrayDebil = searchOnlyWeakness(data, debil);
-    ordered = orderData(arrayDebil, order);
-    text = showImg(ordered);
-  } else {
-    arrayDebil = searchWeakness(data, tipo, debil);
-    ordered = orderData(arrayDebil, order);
-    text = showImg(ordered);
-  }
-  document.getElementById('pok-filtrados').innerHTML = text;
+  const debil = document.getElementById('weakness').value;
+  const filtered = orderFiltered(filtrar(x, debil), order);
+  document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + divideAtrapped(filtered).atrapado;
+  document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + divideAtrapped(filtered).noAtrapado;
+  document.getElementById('pok-filtrados').innerHTML = showImg(filtered);
+  
 });
 
 let list = '';
@@ -250,31 +216,12 @@ search.addEventListener('input', event => {
     showImg(sortId(data));
   }
   const foundPoke = searchName(data, event.target.value.toLowerCase());
-  document.getElementById('pok-filtrados').innerHTML = showImg(foundPoke);
-});
-
-/*
-const searchButton = document.getElementById('search-button');
-searchButton.addEventListener('click', () => {
-  document.getElementById('order').selectedIndex = 0;
-  document.getElementById('weakness').selectedIndex = 0;
-  document.getElementById('filter').selectedIndex = 0;
-  document.getElementById('count-egg').innerHTML = '';
-  document.getElementById('pokemones').innerHTML = '';
-  document.getElementById('pok-filtrados').innerHTML = '';
-  document.getElementById('count-trapped').innerHTML = '';
-  document.getElementById('count-no-trapped').innerHTML = '';
-  document.getElementById('container-trap').classList.add('hide');
-  const searchText = document.getElementById('search').value;
-  let text = '';
-  let arrayName = searchName(data, searchText);
-  if (arrayName.length !== 0) {
-    text = showImg(arrayName);
-    document.getElementById('pok-filtrados').innerHTML = text;
+  if (foundPoke.length === 0) {
+    document.getElementById('pok-filtrados').innerHTML = '<img src="https://pokemongoinfo.netlify.com/charmander.gif"><p class="white">No se encontraron resultados.</p>';
   } else {
-    document.getElementById('pok-filtrados').innerHTML = '<p class="white">No se encontraron resultados.</p>';
+    document.getElementById('pok-filtrados').innerHTML = showImg(foundPoke);
   }
-});*/
+});
 
 const showImg = (array) => {
   let list = '';
