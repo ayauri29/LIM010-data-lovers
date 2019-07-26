@@ -130,7 +130,7 @@ const withoutResults = () => {
 
 const filtrar = (type, debil) =>{
   let filtered = [];
-  if (type === '1' && debil === '0' || type === '1' && debil === '1' ) {
+  if (type === '1' && debil === '0' || type === '1' && debil === '1') {
     return data;
   } else if (debil === '0' && type !== '0' || debil === '1' && type !== '0') {
     filtered = searchType(data, type);
@@ -163,7 +163,6 @@ order.addEventListener('change', () => {
   document.getElementById('count-trapped').innerHTML = 'Atrapados: ' + divideAtrapped(filtered).atrapado;
   document.getElementById('count-no-trapped').innerHTML = 'No atrapados: ' + divideAtrapped(filtered).noAtrapado;
   document.getElementById('pok-filtrados').innerHTML = showImg(filtered);
-  
 });
 
 let list = '';
