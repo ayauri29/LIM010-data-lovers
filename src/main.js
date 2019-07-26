@@ -321,7 +321,6 @@ const graphicPie = () => {
 
     ]
   );
-
   const opc = {
     'title': 'Porcentaje de huevos a eclosionar por tipo de km',
     'width': 450,
